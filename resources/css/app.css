@@ -9,3 +9,125 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Light Mode Theme - Elegant Cream & Gold */
+:root.light-mode {
+    --bg-primary: #fafafa;
+    --bg-secondary: #f5f5f5;
+    --bg-card: #ffffff;
+    --bg-card-alt: #f9f9f9;
+    --text-primary: #1a1a1a;
+    --text-secondary: #2d2d2d;
+    --text-muted: #5a5a5a;
+    --border-color: #e0e0e0;
+    --border-light: #e8e8e8;
+    --gold-primary: #b8860b;
+    --gold-secondary: #daa520;
+    --gold-light: #f4d03f;
+    --silver-primary: #a8a8a8;
+    --silver-secondary: #c8c8c8;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --header-bg: #ffffff;
+    --header-border: #e5e5e5;
+}
+
+/* Dark Mode Theme - Default */
+:root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #0f0f0f;
+    --bg-card: #2a2a2a;
+    --bg-card-alt: #1f1f1f;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #888888;
+    --border-color: #333333;
+    --border-light: #2a2a2a;
+    --gold-primary: #d4af37;
+    --gold-secondary: #ffd700;
+    --gold-light: #ffed4e;
+    --silver-primary: #c0c0c0;
+    --silver-secondary: #e8e8e8;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Theme-aware utility classes */
+.light-mode .bg-theme-primary { background-color: var(--bg-primary); }
+.light-mode .bg-theme-secondary { background-color: var(--bg-secondary); }
+.light-mode .bg-theme-card { background-color: var(--bg-card); }
+.light-mode .bg-theme-card-alt { background-color: var(--bg-card-alt); }
+.light-mode .text-theme-primary { color: var(--text-primary); }
+.light-mode .text-theme-secondary { color: var(--text-secondary); }
+.light-mode .text-theme-muted { color: var(--text-muted); }
+.light-mode .border-theme { border-color: var(--border-color); }
+.light-mode .border-theme-light { border-color: var(--border-light); }
+
+/* Smooth theme transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Light mode support for Tailwind classes */
+.light-mode body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Light mode overrides using CSS custom properties to avoid Tailwind parser conflicts */
+.light-mode .text-white {
+    color: var(--text-primary) !important;
+}
+
+/* Header light mode styling */
+.light-mode header {
+    background-color: var(--header-bg) !important;
+    border-bottom-color: var(--header-border) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Better gold color in light mode */
+.light-mode .text-\[#ffd700\] {
+    color: #b8860b !important;
+}
+
+.light-mode .hover\:text-\[#ffd700\]:hover {
+    color: #daa520 !important;
+}
+
+/* Better contrast for light backgrounds - using attribute selectors to avoid parser issues */
+.light-mode [class*="bg-\\[#1a1a1a\\]"] {
+    background-color: var(--header-bg) !important;
+}
+
+.light-mode [class*="bg-\\[#2a2a2a\\]"] {
+    background-color: #ffffff !important;
+}
+
+.light-mode [class*="bg-\\[#1f1f1f\\]"] {
+    background-color: #f9f9f9 !important;
+}
+
+.light-mode [class*="text-\\[#cccccc\\]"] {
+    color: var(--text-secondary) !important;
+}
+
+.light-mode [class*="text-\\[#888\\]"] {
+    color: var(--text-muted) !important;
+}
+
+.light-mode [class*="border-\\[#333\\]"] {
+    border-color: var(--border-color) !important;
+}
+
+/* Input fields in light mode */
+.light-mode input,
+.light-mode textarea {
+    background-color: #ffffff !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.light-mode input:focus,
+.light-mode textarea:focus {
+    border-color: #daa520 !important;
+    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1) !important;
+}

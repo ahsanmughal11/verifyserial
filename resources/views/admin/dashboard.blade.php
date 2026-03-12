@@ -38,6 +38,14 @@
                     </a>
                 </li>
                 <li class="mb-2">
+                    <a href="{{ route('admin.blog.posts.index') }}" class="flex items-center gap-3 py-3.5 px-[18px] text-[#cccccc] no-underline rounded-md transition-all duration-300 text-sm font-medium hover:bg-[rgba(255,215,0,0.1)] hover:text-[#ffd700]">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h10v2H7zm0 4h10v2H7zm0 4h6v2H7z"/>
+                        </svg>
+                        Blog
+                    </a>
+                </li>
+                <li class="mb-2">
                     <a href="/" class="flex items-center gap-3 py-3.5 px-[18px] text-[#cccccc] no-underline rounded-md transition-all duration-300 text-sm font-medium hover:bg-[rgba(255,215,0,0.1)] hover:text-[#ffd700]" target="_blank">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
@@ -136,6 +144,16 @@
                         </div>
                         <div class="text-base font-semibold text-white">Add New Product</div>
                         <div class="text-[13px] text-[#888] leading-relaxed">Create a new product with serial number and details</div>
+                    </a>
+
+                    <a href="{{ route('admin.blog.posts.index') }}" class="bg-[#151515] border border-[#2a2a2a] rounded-lg p-6 no-underline text-white transition-all duration-300 flex flex-col gap-4 hover:border-[#ffd700] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,215,0,0.15)]">
+                        <div class="w-[45px] h-[45px] bg-[rgba(255,215,0,0.1)] rounded-lg flex items-center justify-center text-[#ffd700]">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h10v2H7zm0 4h10v2H7zm0 4h6v2H7z"/>
+                            </svg>
+                        </div>
+                        <div class="text-base font-semibold text-white">Manage Blog</div>
+                        <div class="text-[13px] text-[#888] leading-relaxed">Create and publish blog posts with categories and tags</div>
                     </a>
 
                     <a href="/" class="bg-[#151515] border border-[#2a2a2a] rounded-lg p-6 no-underline text-white transition-all duration-300 flex flex-col gap-4 hover:border-[#ffd700] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,215,0,0.15)]" target="_blank">

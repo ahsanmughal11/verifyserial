@@ -288,15 +288,23 @@
                         <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">MANUFACTURED DATE</div>
                         <div class="text-lg font-bold text-white flex items-center gap-2">{{ $product->manufacturing_date->format('F d, Y') }}</div>
                     </div>
+                    @if($product->weight)
+                    <div class="flex flex-col">
+                        <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">WEIGHT</div>
+                        <div class="text-lg font-bold text-white flex items-center gap-2">{{ number_format($product->weight, 2) }} Tola</div>
+                    </div>
+                    @endif
+                    @if($product->purity)
                     <div class="flex flex-col">
                         <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">PURITY RATING</div>
                         <div class="text-lg font-bold text-white flex items-center gap-2">
-                            99.9% Pure Silver
+                            {{ $product->purity }}
                             <svg class="w-4 h-4 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                             </svg>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
 
@@ -330,13 +338,15 @@
     </div>
 
     <!-- Footer -->
-    <footer class="max-w-[1200px] mx-auto mt-16 text-center py-8 border-t border-[#333]">
+    <footer class="max-w-[1200px] mx-auto mt-16 text-center py-8 border-t border-[#333] light-mode:border-[#c0c0c0]">
         <ul class="flex justify-center items-center gap-4 list-none flex-wrap">
-            <li class="flex items-center gap-4"><a href="#" class="text-[#cccccc] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Terms of Service</a></li>
-            <li><div class="w-1 h-1 bg-[#666] rounded-full"></div></li>
-            <li class="flex items-center gap-4"><a href="#" class="text-[#cccccc] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Privacy Policy</a></li>
-            <li><div class="w-1 h-1 bg-[#666] rounded-full"></div></li>
-            <li class="flex items-center gap-4"><a href="#" class="text-[#cccccc] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Contact Exchange</a></li>
+            <li class="flex items-center gap-4"><a href="{{ route('legal.terms') }}" class="text-[#cccccc] light-mode:text-[#4a4a4a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Terms & Conditions</a></li>
+            <li><div class="w-1 h-1 bg-[#666] light-mode:bg-[#9a9a9a] rounded-full"></div></li>
+            <li class="flex items-center gap-4"><a href="{{ route('legal.privacy') }}" class="text-[#cccccc] light-mode:text-[#4a4a4a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Privacy Policy</a></li>
+            <li><div class="w-1 h-1 bg-[#666] light-mode:bg-[#9a9a9a] rounded-full"></div></li>
+            <li class="flex items-center gap-4"><a href="{{ route('legal.cookies') }}" class="text-[#cccccc] light-mode:text-[#4a4a4a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Cookies Policy</a></li>
+            <li><div class="w-1 h-1 bg-[#666] light-mode:bg-[#9a9a9a] rounded-full"></div></li>
+            <li class="flex items-center gap-4"><a href="{{ route('contact') }}" class="text-[#cccccc] light-mode:text-[#4a4a4a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Contact Exchange</a></li>
         </ul>
     </footer>
 

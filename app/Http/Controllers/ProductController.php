@@ -26,6 +26,8 @@ class ProductController extends Controller
             'product_name' => 'required|string',
             'product_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5056',
             'manufacturing_date' => 'required|date',
+            'weight' => 'nullable|numeric|min:0',
+            'purity' => 'nullable|string|max:255',
         ]);
 
         $productPicturePath = null;
@@ -42,6 +44,8 @@ class ProductController extends Controller
             'product_name' => $request->product_name,
             'product_picture' => $productPicturePath,
             'manufacturing_date' => $request->manufacturing_date,
+            'weight' => $request->weight,
+            'purity' => $request->purity,
         ]);
 
         return redirect()->route('products.index')->with('success', 'Product added successfully!');
@@ -59,6 +63,8 @@ class ProductController extends Controller
             'product_name' => 'required|string',
             'product_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5056',
             'manufacturing_date' => 'required|date',
+            'weight' => 'nullable|numeric|min:0',
+            'purity' => 'nullable|string|max:255',
         ]);
 
         $productPicturePath = $product->product_picture;
@@ -80,6 +86,8 @@ class ProductController extends Controller
             'product_name' => $request->product_name,
             'product_picture' => $productPicturePath,
             'manufacturing_date' => $request->manufacturing_date,
+            'weight' => $request->weight,
+            'purity' => $request->purity,
         ]);
 
         return redirect()->route('products.index')->with('success', 'Product updated successfully!');

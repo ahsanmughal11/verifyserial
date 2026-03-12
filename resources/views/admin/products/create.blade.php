@@ -125,6 +125,22 @@
                         @enderror
                     </div>
 
+                    <div class="mb-6">
+                        <label for="weight" class="block mb-2.5 text-[#cccccc] text-sm font-semibold">Weight (in Tola)</label>
+                        <input type="number" id="weight" name="weight" value="{{ old('weight') }}" step="0.01" min="0" placeholder="e.g. 1.00" class="w-full py-3.5 px-[18px] bg-[#151515] border border-[#2a2a2a] rounded-md text-white text-[15px] outline-none transition-all duration-300 focus:border-[#ffd700] focus:shadow-[0_0_0_3px_rgba(255,215,0,0.1)]">
+                        @error('weight')
+                            <div class="text-[#ff6b6b] mt-2 text-[13px]">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="purity" class="block mb-2.5 text-[#cccccc] text-sm font-semibold">Purity</label>
+                        <input type="text" id="purity" name="purity" value="{{ old('purity') }}" placeholder="e.g. 99.9% Pure Silver" class="w-full py-3.5 px-[18px] bg-[#151515] border border-[#2a2a2a] rounded-md text-white text-[15px] outline-none transition-all duration-300 focus:border-[#ffd700] focus:shadow-[0_0_0_3px_rgba(255,215,0,0.1)]">
+                        @error('purity')
+                            <div class="text-[#ff6b6b] mt-2 text-[13px]">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     <div class="flex gap-4 mt-8 pt-6 border-t border-[#2a2a2a] md:flex-col">
                         <button type="submit" class="py-3.5 px-7 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] border-none rounded-md inline-flex items-center gap-2 text-[15px] font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(255,215,0,0.4)] cursor-pointer md:w-full md:justify-center">Add Product</button>
                         <a href="{{ route('products.index') }}" class="py-3.5 px-7 bg-transparent text-[#cccccc] border border-[#2a2a2a] rounded-md inline-flex items-center gap-2 text-[15px] font-semibold transition-all duration-300 no-underline hover:bg-[#2a2a2a] hover:text-white md:w-full md:justify-center">Cancel</a>
