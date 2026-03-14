@@ -56,7 +56,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::prefix('admin')->name('admin.')->group(function () {
 
             Route::resource('products', ProductController::class)->names('products');
-            Route::resource('featured-products', FeaturedProductController::class)->names('featured-products');
+            Route::resource('featured-products', FeaturedProductController::class);
 
             // Blog management routes
             Route::prefix('blog')->name('blog.')->group(function () {
