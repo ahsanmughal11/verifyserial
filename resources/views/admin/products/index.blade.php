@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="mb-2">
-                    <a href="{{ route('products.index') }}" class="flex items-center gap-3 py-3.5 px-[18px] text-[#ffd700] no-underline rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-[rgba(255,215,0,0.2)] to-transparent border-l-[3px] border-[#ffd700]">
+                    <a href="{{ route('admin.products.index') }}" class="flex items-center gap-3 py-3.5 px-[18px] text-[#ffd700] no-underline rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-[rgba(255,215,0,0.2)] to-transparent border-l-[3px] border-[#ffd700]">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/>
                         </svg>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="flex gap-4 md:w-full md:mt-4">
-                <a href="{{ route('products.create') }}" class="py-3 px-6 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] border-none rounded-md inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 no-underline hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(255,215,0,0.4)] cursor-pointer">
+                <a href="{{ route('admin.products.create') }}" class="py-3 px-6 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] border-none rounded-md inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 no-underline hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(255,215,0,0.4)] cursor-pointer">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                     </svg>
@@ -127,8 +127,8 @@
                                         <td class="py-4.5 px-8 text-left border-b border-[#2a2a2a] text-[#cccccc] text-sm">{{ $product->manufacturing_date->format('M d, Y') }}</td>
                                         <td class="py-4.5 px-8 text-left border-b border-[#2a2a2a] text-[#cccccc] text-sm">
                                             <div class="flex gap-2.5">
-                                                <a href="{{ route('products.edit', $product) }}" class="py-2 px-4 bg-transparent text-[#ffd700] border border-[#ffd700] rounded-md text-[13px] no-underline transition-all duration-300 hover:bg-[#ffd700] hover:text-[#1a1a1a]">Edit</a>
-                                                <form method="POST" action="{{ route('products.destroy', $product) }}" class="inline" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                                <a href="{{ route('admin.products.edit', $product) }}" class="py-2 px-4 bg-transparent text-[#ffd700] border border-[#ffd700] rounded-md text-[13px] no-underline transition-all duration-300 hover:bg-[#ffd700] hover:text-[#1a1a1a]">Edit</a>
+                                                <form method="POST" action="{{ route('admin.products.destroy', $product) }}" class="inline" onsubmit="return confirm('Are you sure you want to delete this product?');">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="py-2 px-4 bg-transparent text-[#ff6b6b] border border-[#ff6b6b] rounded-md text-[13px] transition-all duration-300 hover:bg-[#ff6b6b] hover:text-white cursor-pointer">Delete</button>
@@ -152,7 +152,7 @@
                         </svg>
                         <h3 class="text-xl text-white mb-2.5">No Products Found</h3>
                         <p class="text-sm mb-6">Get started by adding your first product to the system.</p>
-                        <a href="{{ route('products.create') }}" class="py-3.5 px-7 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] border-none rounded-md inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 no-underline hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(255,215,0,0.4)] cursor-pointer">
+                        <a href="{{ route('admin.products.create') }}" class="py-3.5 px-7 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] border-none rounded-md inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 no-underline hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(255,215,0,0.4)] cursor-pointer">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>

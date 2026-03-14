@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="mb-2">
-                    <a href="{{ route('products.index') }}" class="flex items-center gap-3 py-3.5 px-[18px] text-[#ffd700] no-underline rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-[rgba(255,215,0,0.2)] to-transparent border-l-[3px] border-[#ffd700]">
+                    <a href="{{ route('admin.products.index') }}" class="flex items-center gap-3 py-3.5 px-[18px] text-[#ffd700] no-underline rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-[rgba(255,215,0,0.2)] to-transparent border-l-[3px] border-[#ffd700]">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/>
                         </svg>
@@ -71,7 +71,7 @@
                 <div class="flex items-center gap-2 text-[13px] text-[#888]">
                     <a href="{{ route('dashboard') }}" class="text-[#ffd700] no-underline hover:underline">Dashboard</a>
                     <span>/</span>
-                    <a href="{{ route('products.index') }}" class="text-[#ffd700] no-underline hover:underline">Products</a>
+                    <a href="{{ route('admin.products.index') }}" class="text-[#ffd700] no-underline hover:underline">Products</a>
                     <span>/</span>
                     <span>Edit</span>
                 </div>
@@ -90,7 +90,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('products.update', $product) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.products.update', $product) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     
@@ -150,7 +150,7 @@
 
                     <div class="flex gap-4 mt-8 pt-6 border-t border-[#2a2a2a] md:flex-col">
                         <button type="submit" class="py-3.5 px-7 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] border-none rounded-md inline-flex items-center gap-2 text-[15px] font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(255,215,0,0.4)] cursor-pointer md:w-full md:justify-center">Update Product</button>
-                        <a href="{{ route('products.index') }}" class="py-3.5 px-7 bg-transparent text-[#cccccc] border border-[#2a2a2a] rounded-md inline-flex items-center gap-2 text-[15px] font-semibold transition-all duration-300 no-underline hover:bg-[#2a2a2a] hover:text-white md:w-full md:justify-center">Cancel</a>
+                        <a href="{{ route('admin.products.index') }}" class="py-3.5 px-7 bg-transparent text-[#cccccc] border border-[#2a2a2a] rounded-md inline-flex items-center gap-2 text-[15px] font-semibold transition-all duration-300 no-underline hover:bg-[#2a2a2a] hover:text-white md:w-full md:justify-center">Cancel</a>
                     </div>
                 </form>
             </div>
