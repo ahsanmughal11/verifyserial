@@ -1,14 +1,23 @@
-@extends('admin.blog.layout')
+@extends('layouts.admin')
 
 @section('title', 'Manage Blog Posts')
-@section('pageTitle', 'Manage Blog Posts')
-@section('crumb', 'Posts')
+@section('page-title', 'Manage Blog Posts')
+
+@section('breadcrumb')
+<span>/</span>
+<span class="text-[#888]">Blog</span>
+<span>/</span>
+<span class="text-[#888]">Posts</span>
+@endsection
+
+@section('header-actions')
+<a href="{{ route('admin.blog.posts.create') }}" class="py-3 px-6 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] rounded-md inline-flex items-center gap-2 text-sm font-semibold no-underline hover:-translate-y-0.5 transition-all duration-300 hover:shadow-[0_8px_20px_rgba(255,215,0,0.2)]">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+    Create Post
+</a>
+@endsection
 
 @section('content')
-<div class="flex justify-end mb-6">
-    <a href="{{ route('admin.blog.posts.create') }}" class="py-3 px-6 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] rounded-md inline-flex items-center gap-2 text-sm font-semibold no-underline">Create Post</a>
-</div>
-
 <div class="bg-gradient-to-br from-[#1f1f1f] to-[#1a1a1a] border border-[#2a2a2a] rounded-lg overflow-hidden">
     <div class="overflow-x-auto">
         <table class="w-full border-collapse md:min-w-[900px]">
@@ -41,12 +50,12 @@
                         </td>
                         <td class="py-4 px-6 border-b border-[#2a2a2a] text-sm">
                             <div class="flex gap-2">
-                                <a href="{{ route('admin.blog.posts.edit', $post) }}" class="py-2 px-3 border border-[#ffd700] text-[#ffd700] rounded text-xs no-underline">Edit</a>
-                                <a href="{{ route('blog.show', $post->slug) }}" target="_blank" class="py-2 px-3 border border-[#2a2a2a] text-[#ccc] rounded text-xs no-underline">View</a>
+                                <a href="{{ route('admin.blog.posts.edit', $post) }}" class="py-2 px-3 border border-[#ffd700] text-[#ffd700] rounded text-xs no-underline hover:bg-[#ffd700] hover:text-[#1a1a1a] transition-all duration-200">Edit</a>
+                                <a href="{{ route('blog.show', $post->slug) }}" target="_blank" class="py-2 px-3 border border-[#2a2a2a] text-[#ccc] rounded text-xs no-underline hover:bg-[#333] transition-all duration-200">View</a>
                                 <form method="POST" action="{{ route('admin.blog.posts.destroy', $post) }}" onsubmit="return confirm('Delete this post?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="py-2 px-3 border border-[#ff6b6b] text-[#ff6b6b] rounded text-xs">Delete</button>
+                                    <button type="submit" class="py-2 px-3 border border-[#ff6b6b] text-[#ff6b6b] rounded text-xs bg-transparent cursor-pointer hover:bg-[#ff6b6b] hover:text-white transition-all duration-200">Delete</button>
                                 </form>
                             </div>
                         </td>

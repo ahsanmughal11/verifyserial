@@ -35,22 +35,18 @@
             </div>
         </div>
     </div>
-    <div class="max-w-[1200px] mx-auto pt-8 border-t border-[#333] light-mode:border-[#c0c0c0]">
+    <div class="max-w-[1200px] mx-auto pt-8 border-t border-[#333] light-mode:border-[#d4d4d4]">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-            <div class="text-[13px] text-[#888] light-mode:text-[#6a6a6a] text-center md:text-left">
-                <span>© 2026 Karachi Bullion Exchange. All Rights Reserved.</span>
+            <div class="text-[13px] text-[#888] light-mode:text-[#555555] text-center md:text-left">
+                <span>© 2026 Karachi Bullion Exchange. All Rights Reserved.</span> 
+                <span> | A Site by <a href="https://asdigitals.co" target="_blank" class="text-[#ffd700] light-mode:text-[#b8860b] font-semibold no-underline transition-colors duration-300 hover:text-[#d4af37]">AsDigitals.co</a></span>
             </div>
             <div class="flex items-center gap-4 flex-wrap justify-center">
-                <a href="{{ route('legal.privacy') }}" class="text-[#cccccc] light-mode:text-[#4a4a4a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Privacy Policy</a>
-                <span class="text-[#666] light-mode:text-[#9a9a9a]">|</span>
-                <a href="{{ route('legal.terms') }}" class="text-[#cccccc] light-mode:text-[#4a4a4a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Terms & Conditions</a>
-                <span class="text-[#666] light-mode:text-[#9a9a9a]">|</span>
-                <a href="{{ route('legal.cookies') }}" class="text-[#cccccc] light-mode:text-[#4a4a4a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700]">Cookies Policy</a>
-            </div>
-        </div>
-        <div class="text-center">
-            <div class="text-[13px] text-[#888] light-mode:text-[#6a6a6a]">
-                <span>A Site by <a href="https://asdigitals.co" target="_blank" class="text-[#ffd700] font-semibold no-underline transition-colors duration-300 hover:text-[#d4af37]">AsDigitals.co</a></span>
+                <a href="{{ route('legal.privacy') }}" class="text-[#cccccc] light-mode:text-[#444444] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] light-mode:hover:text-[#b8860b]">Privacy Policy</a>
+                <span class="text-[#666] light-mode:text-[#999999]">|</span>
+                <a href="{{ route('legal.terms') }}" class="text-[#cccccc] light-mode:text-[#444444] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] light-mode:hover:text-[#b8860b]">Terms & Conditions</a>
+                <span class="text-[#666] light-mode:text-[#999999]">|</span>
+                <a href="{{ route('legal.cookies') }}" class="text-[#cccccc] light-mode:text-[#444444] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] light-mode:hover:text-[#b8860b]">Cookies Policy</a>
             </div>
         </div>
     </div>

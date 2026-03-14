@@ -5,6 +5,8 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@variant light-mode (&:where(.light-mode, .light-mode *));
+
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
@@ -51,15 +53,24 @@
 }
 
 /* Theme-aware utility classes */
-.light-mode .bg-theme-primary { background-color: var(--bg-primary); }
-.light-mode .bg-theme-secondary { background-color: var(--bg-secondary); }
-.light-mode .bg-theme-card { background-color: var(--bg-card); }
-.light-mode .bg-theme-card-alt { background-color: var(--bg-card-alt); }
-.light-mode .text-theme-primary { color: var(--text-primary); }
-.light-mode .text-theme-secondary { color: var(--text-secondary); }
-.light-mode .text-theme-muted { color: var(--text-muted); }
-.light-mode .border-theme { border-color: var(--border-color); }
-.light-mode .border-theme-light { border-color: var(--border-light); }
+.bg-theme-primary { background-color: var(--bg-primary); }
+.bg-theme-secondary { background-color: var(--bg-secondary); }
+.bg-theme-card { background-color: var(--bg-card); }
+.bg-theme-card-alt { background-color: var(--bg-card-alt); }
+.text-theme-primary { color: var(--text-primary); }
+.text-theme-secondary { color: var(--text-secondary); }
+.text-theme-muted { color: var(--text-muted); }
+.border-theme { border-color: var(--border-color); }
+.border-theme-light { border-color: var(--border-light); }
+
+/* Theme-aware gradients */
+.bg-theme-gradient {
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+}
+
+/* Theme-aware text accents */
+.text-theme-gold { color: var(--gold-primary); }
+.hover-text-theme-gold:hover { color: var(--gold-secondary); }
 
 /* Smooth theme transitions */
 * {
@@ -94,28 +105,49 @@
 }
 
 /* Better contrast for light backgrounds - using attribute selectors to avoid parser issues */
-.light-mode [class*="bg-\\[#1a1a1a\\]"] {
-    background-color: var(--header-bg) !important;
-}
+.light-mode {
+    /* Background Overrides */
+    & [class*="bg-\\[#1a1a1a\\]"], 
+    & [class*="bg-\\[#151515\\]"], 
+    & [class*="bg-\\[#0a0a0a\\]"],
+    & [class*="bg-\\[#2a2a2a\\]"],
+    & [class*="bg-\\[#1f1f1f\\]"] { 
+        background-color: var(--bg-card) !important; 
+        background-image: none !important;
+    }
+    
+    /* Gradient Overrides */
+    & [class*="from-\\[#2a2a2a\\]"], 
+    & [class*="from-\\[#1a1a1a\\]"], 
+    & [class*="from-\\[#1f1f1f\\]"] { 
+        --tw-gradient-from: var(--bg-card) !important; 
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0)) !important;
+    }
+    & [class*="to-\\[#1f1f1f\\]"], 
+    & [class*="to-\\[#0a0a0a\\]"], 
+    & [class*="to-\\[#1a1a1a\\]"] { 
+        --tw-gradient-to: var(--bg-card-alt) !important; 
+    }
 
-.light-mode [class*="bg-\\[#2a2a2a\\]"] {
-    background-color: #ffffff !important;
-}
+    /* Text Overrides */
+    & [class*="text-\\[#cccccc\\]"], 
+    & [class*="text-\\[#ccc\\]"], 
+    & [class*="text-\\[#888\\]"] { 
+        color: var(--text-secondary) !important; 
+    }
+    & .text-white { color: var(--text-primary) !important; }
+    
+    /* Border Overrides */
+    & [class*="border-\\[#2a2a2a\\]"], 
+    & [class*="border-\\[#333\\]"], 
+    & [class*="border-\\[#e5e5e5\\]"],
+    & [class*="border-\\[rgba\\(255\\,215\\,0\\,0.3\\)\\]"] { 
+        border-color: var(--border-color) !important; 
+    }
 
-.light-mode [class*="bg-\\[#1f1f1f\\]"] {
-    background-color: #f9f9f9 !important;
-}
-
-.light-mode [class*="text-\\[#cccccc\\]"] {
-    color: var(--text-secondary) !important;
-}
-
-.light-mode [class*="text-\\[#888\\]"] {
-    color: var(--text-muted) !important;
-}
-
-.light-mode [class*="border-\\[#333\\]"] {
-    border-color: var(--border-color) !important;
+    /* Gold text brightness adjustment for light bg */
+    & [class*="text-\\[#ffd700\\]"] { color: var(--gold-primary) !important; }
+    & [class*="hover:text-\\[#ffd700\\]"]:hover { color: var(--gold-secondary) !important; }
 }
 
 /* Input fields in light mode */
@@ -128,6 +160,6 @@
 
 .light-mode input:focus,
 .light-mode textarea:focus {
-    border-color: #daa520 !important;
-    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1) !important;
+    border-color: var(--gold-primary) !important;
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1) !important;
 }

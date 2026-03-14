@@ -8,50 +8,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans bg-[#1a1a1a] light-mode:bg-[#f5f5f5] text-white light-mode:text-[#1a1a1a] leading-relaxed transition-colors duration-300">
-    <!-- Header -->
-    <header class="bg-[#1a1a1a] light-mode:bg-[#f5f5f5] px-[60px] py-5 flex justify-between items-center border-b border-[#333] light-mode:border-[#c0c0c0] md:px-8 md:flex-wrap transition-colors duration-300">
-        <div class="flex items-center gap-3">
-            <a href="/" class="flex items-center gap-3 no-underline">
-                <div class="w-10 h-10 bg-gradient-to-br from-[#d4af37] to-[#ffd700] rounded-sm flex items-center justify-center text-2xl">🏛️</div>
-                <div class="flex flex-col">
-                    <div class="text-xl font-bold text-[#ffd700] tracking-wide">KARACHI BULLION</div>
-                    <div class="text-[11px] text-[#cccccc] light-mode:text-[#6a6a6a] tracking-[0.5px]">EXCHANGE</div>
-                </div>
-            </a>
-        </div>
-        <div class="flex items-center gap-4 md:order-3 md:w-full md:justify-center md:mt-4">
-            <nav>
-                <ul class="flex gap-[30px] list-none">
-                    <li><a href="/" class="text-white light-mode:text-[#1a1a1a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] relative">Products</a></li>
-                    <li><a href="/" class="text-white light-mode:text-[#1a1a1a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] relative">Verification</a></li>
-                    <li><a href="{{ route('blog.index') }}" class="text-white light-mode:text-[#1a1a1a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] relative">Blog</a></li>
-                    <li><a href="{{ route('about') }}" class="text-white light-mode:text-[#1a1a1a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] relative after:content-[''] after:absolute after:-bottom-[5px] after:left-0 after:right-0 after:h-0.5 after:bg-[#ffd700]">About Us</a></li>
-                    <li><a href="{{ route('contact') }}" class="text-white light-mode:text-[#1a1a1a] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] relative">Contact</a></li>
-                </ul>
-            </nav>
-            <!-- Theme Toggle Button -->
-            <button 
-                id="theme-toggle" 
-                type="button"
-                onclick="if(typeof toggleTheme === 'function') { toggleTheme(); } else { console.error('toggleTheme function not found'); }"
-                class="w-10 h-10 flex items-center justify-center rounded-md bg-[#2a2a2a] light-mode:bg-[#e8e8e8] border border-[#333] light-mode:border-[#c0c0c0] text-[#ffd700] hover:bg-[#333] light-mode:hover:bg-[#d0d0d0] transition-all duration-300 ml-4"
-                aria-label="Toggle theme"
-            >
-                <svg id="theme-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="4"/>
-                    <path d="M12 2v2"/>
-                    <path d="M12 20v2"/>
-                    <path d="M4.93 4.93l1.41 1.41"/>
-                    <path d="M17.66 17.66l1.41 1.41"/>
-                    <path d="M2 12h2"/>
-                    <path d="M20 12h2"/>
-                    <path d="M6.34 17.66l-1.41 1.41"/>
-                    <path d="M19.07 4.93l-1.41 1.41"/>
-                </svg>
-            </button>
-        </div>
-    </header>
-
+    @include('partials.header')
+    
     <!-- Hero Section -->
     <section class="max-w-[1200px] mx-auto py-20 px-10 text-center relative overflow-visible before:content-[''] before:absolute before:-top-[200px] before:left-1/2 before:-translate-x-1/2 before:w-[800px] before:h-[800px] before:bg-[radial-gradient(circle,rgba(255,215,0,0.15)_0%,rgba(212,175,55,0.1)_30%,transparent_70%)] before:pointer-events-none before:z-0 [&>*]:relative [&>*]:z-10">
         <div class="inline-flex items-center gap-2.5 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] px-6 py-3 rounded-sm font-bold text-sm mb-8">
@@ -61,9 +19,9 @@
             ESTABLISHED 1995
         </div>
         <h1 class="text-5xl font-bold mb-5 leading-tight md:text-[32px]">
-            About <span class="text-[#ffd700]">Karachi Bullion Exchange</span>
+            About <span class="text-[#ffd700] light-mode:text-[#b8860b]">Karachi Bullion Exchange</span>
         </h1>
-        <p class="text-lg text-[#cccccc] max-w-[700px] mx-auto mb-10">
+        <p class="text-lg text-[#cccccc] light-mode:text-[#444444] max-w-[700px] mx-auto mb-10">
             Three decades of excellence in precious metals trading, authentication, and verification. Trusted by investors, collectors, and institutions worldwide.
         </p>
     </section>
@@ -73,12 +31,12 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="order-2 lg:order-1">
                 <div class="inline-block mb-6">
-                    <span class="text-[#ffd700] text-sm font-semibold tracking-[2px] uppercase">Our Heritage</span>
+                    <span class="text-[#ffd700] light-mode:text-[#b8860b] text-sm font-semibold tracking-[2px] uppercase">Our Heritage</span>
                 </div>
-                <h2 class="text-4xl font-bold mb-6 text-white md:text-3xl">
-                    A Legacy of <span class="text-[#ffd700]">Trust & Excellence</span>
+                <h2 class="text-4xl font-bold mb-6 text-white light-mode:text-[#1a1a1a] md:text-3xl">
+                    A Legacy of <span class="text-[#ffd700] light-mode:text-[#b8860b]">Trust & Excellence</span>
                 </h2>
-                <div class="space-y-4 text-[#cccccc] text-[15px] leading-relaxed">
+                <div class="space-y-4 text-[#cccccc] light-mode:text-[#4a4a4a] text-[15px] leading-relaxed">
                     <p>
                         Founded in 1995, Karachi Bullion Exchange has been at the forefront of precious metals trading in Pakistan and the broader region. What started as a small family business has grown into one of the most trusted names in bullion verification and authentication.
                     </p>
@@ -91,23 +49,23 @@
                 </div>
             </div>
             <div class="order-1 lg:order-2">
-                <div class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] border border-[rgba(255,215,0,0.3)] rounded-xl p-10 relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.4)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)]">
+                <div class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] light-mode:from-white light-mode:to-[#fcfcfc] border border-[rgba(255,215,0,0.3)] light-mode:border-[#e5e5e5] rounded-xl p-10 relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.4)] light-mode:shadow-[0_8px_25px_rgba(0,0,0,0.08)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)]">
                     <div class="grid grid-cols-2 gap-6">
                         <div class="text-center">
-                            <div class="text-5xl font-bold text-[#ffd700] mb-2">30+</div>
-                            <div class="text-sm text-[#cccccc]">Years of Excellence</div>
+                            <div class="text-5xl font-bold text-[#ffd700] light-mode:text-[#b8860b] mb-2">30+</div>
+                            <div class="text-sm text-[#cccccc] light-mode:text-[#4a4a4a]">Years of Excellence</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-5xl font-bold text-[#ffd700] mb-2">50K+</div>
-                            <div class="text-sm text-[#cccccc]">Verified Assets</div>
+                            <div class="text-5xl font-bold text-[#ffd700] light-mode:text-[#b8860b] mb-2">50K+</div>
+                            <div class="text-sm text-[#cccccc] light-mode:text-[#4a4a4a]">Verified Assets</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-5xl font-bold text-[#ffd700] mb-2">100+</div>
-                            <div class="text-sm text-[#cccccc]">Countries Served</div>
+                            <div class="text-5xl font-bold text-[#ffd700] light-mode:text-[#b8860b] mb-2">100+</div>
+                            <div class="text-sm text-[#cccccc] light-mode:text-[#4a4a4a]">Countries Served</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-5xl font-bold text-[#ffd700] mb-2">99.9%</div>
-                            <div class="text-sm text-[#cccccc]">Purity Guarantee</div>
+                            <div class="text-5xl font-bold text-[#ffd700] light-mode:text-[#b8860b] mb-2">99.9%</div>
+                            <div class="text-sm text-[#cccccc] light-mode:text-[#4a4a4a]">Purity Guarantee</div>
                         </div>
                     </div>
                 </div>
@@ -119,48 +77,48 @@
     <section class="max-w-[1200px] mx-auto px-10 py-16">
         <div class="text-center mb-12">
             <div class="inline-block mb-4">
-                <span class="text-[#ffd700] text-sm font-semibold tracking-[2px] uppercase">Our Foundation</span>
+                <span class="text-[#ffd700] light-mode:text-[#b8860b] text-sm font-semibold tracking-[2px] uppercase">Our Foundation</span>
             </div>
-            <h2 class="text-4xl font-bold mb-4 text-white md:text-3xl">
-                Mission, Vision & <span class="text-[#ffd700]">Values</span>
+            <h2 class="text-4xl font-bold mb-4 text-white light-mode:text-[#1a1a1a] md:text-3xl">
+                Mission, Vision & <span class="text-[#ffd700] light-mode:text-[#b8860b]">Values</span>
             </h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Mission -->
-            <div class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] border border-[rgba(255,215,0,0.3)] rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.4)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-theme-gradient border border-theme-light rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_var(--shadow-color)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300">
                 <div class="w-16 h-16 bg-gradient-to-br from-[rgba(255,215,0,0.15)] to-[rgba(212,175,55,0.08)] border-2 border-[rgba(255,215,0,0.4)] rounded-md flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg class="w-8 h-8 text-theme-gold" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-[#ffd700]">Our Mission</h3>
-                <p class="text-[#cccccc] text-sm leading-relaxed">
+                <h3 class="text-xl font-bold mb-4 text-theme-gold">Our Mission</h3>
+                <p class="text-theme-secondary text-sm leading-relaxed">
                     To provide the highest quality precious metals with transparent authentication systems, ensuring every investor and collector can trust in the authenticity of their assets.
                 </p>
             </div>
 
             <!-- Vision -->
-            <div class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] border border-[rgba(255,215,0,0.3)] rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.4)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-theme-gradient border border-theme-light rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_var(--shadow-color)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300">
                 <div class="w-16 h-16 bg-gradient-to-br from-[rgba(255,215,0,0.15)] to-[rgba(212,175,55,0.08)] border-2 border-[rgba(255,215,0,0.4)] rounded-md flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg class="w-8 h-8 text-theme-gold" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-[#ffd700]">Our Vision</h3>
-                <p class="text-[#cccccc] text-sm leading-relaxed">
+                <h3 class="text-xl font-bold mb-4 text-theme-gold">Our Vision</h3>
+                <p class="text-theme-secondary text-sm leading-relaxed">
                     To become the global standard for precious metals authentication, setting new benchmarks in security, transparency, and customer trust in the industry.
                 </p>
             </div>
 
             <!-- Values -->
-            <div class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] border border-[rgba(255,215,0,0.3)] rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.4)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-theme-gradient border border-theme-light rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_var(--shadow-color)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300">
                 <div class="w-16 h-16 bg-gradient-to-br from-[rgba(255,215,0,0.15)] to-[rgba(212,175,55,0.08)] border-2 border-[rgba(255,215,0,0.4)] rounded-md flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg class="w-8 h-8 text-theme-gold" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-4 text-[#ffd700]">Our Values</h3>
-                <p class="text-[#cccccc] text-sm leading-relaxed">
+                <h3 class="text-xl font-bold mb-4 text-theme-gold">Our Values</h3>
+                <p class="text-theme-secondary text-sm leading-relaxed">
                     Integrity, transparency, and excellence guide everything we do. We believe in building lasting relationships through trust, quality, and unwavering commitment to our clients.
                 </p>
             </div>
@@ -214,38 +172,38 @@
                 </p>
             </div>
 
-            <div class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] border border-[rgba(255,215,0,0.3)] rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.4)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300 group">
+            <div class="bg-theme-gradient border border-theme-light p-8 rounded-xl shadow-[0_8px_20px_var(--shadow-color)] hover:-translate-y-2 transition-all duration-300 group">
                 <div class="w-14 h-14 bg-gradient-to-br from-[rgba(255,215,0,0.15)] to-[rgba(212,175,55,0.08)] border-2 border-[rgba(255,215,0,0.4)] rounded-md flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:border-[rgba(255,215,0,0.7)]">
-                    <svg class="w-7 h-7 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg class="w-7 h-7 text-theme-gold" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold mb-3 text-[#ffd700]">Premium Quality</h3>
-                <p class="text-[#cccccc] text-sm leading-relaxed">
+                <h3 class="text-lg font-bold mb-3 text-theme-gold">Premium Quality</h3>
+                <p class="text-theme-secondary text-sm leading-relaxed">
                     All products meet the highest international standards of 999.9 fineness, certified by independent assay laboratories.
                 </p>
             </div>
 
-            <div class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] border border-[rgba(255,215,0,0.3)] rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.4)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300 group">
+            <div class="bg-theme-gradient border border-theme-light rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_var(--shadow-color)] hover:-translate-y-2 transition-all duration-300 group">
                 <div class="w-14 h-14 bg-gradient-to-br from-[rgba(255,215,0,0.15)] to-[rgba(212,175,55,0.08)] border-2 border-[rgba(255,215,0,0.4)] rounded-md flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:border-[rgba(255,215,0,0.7)]">
-                    <svg class="w-7 h-7 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg class="w-7 h-7 text-theme-gold" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold mb-3 text-[#ffd700]">Expert Support</h3>
-                <p class="text-[#cccccc] text-sm leading-relaxed">
+                <h3 class="text-lg font-bold mb-3 text-theme-gold">Expert Support</h3>
+                <p class="text-theme-secondary text-sm leading-relaxed">
                     Our team of certified experts is available 24/7 to assist with verification, authentication, and any inquiries you may have.
                 </p>
             </div>
 
-            <div class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] border border-[rgba(255,215,0,0.3)] rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.4)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-[linear-gradient(90deg,transparent,#ffd700,#d4af37,#ffd700,transparent)] hover:-translate-y-2 transition-all duration-300 group">
+            <div class="bg-theme-gradient border border-theme-light rounded-xl p-8 relative overflow-hidden shadow-[0_8px_20px_var(--shadow-color)] hover:-translate-y-2 transition-all duration-300 group">
                 <div class="w-14 h-14 bg-gradient-to-br from-[rgba(255,215,0,0.15)] to-[rgba(212,175,55,0.08)] border-2 border-[rgba(255,215,0,0.4)] rounded-md flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:border-[rgba(255,215,0,0.7)]">
-                    <svg class="w-7 h-7 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg class="w-7 h-7 text-theme-gold" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold mb-3 text-[#ffd700]">Timely Service</h3>
-                <p class="text-[#cccccc] text-sm leading-relaxed">
+                <h3 class="text-lg font-bold mb-3 text-theme-gold">Timely Service</h3>
+                <p class="text-theme-secondary text-sm leading-relaxed">
                     Fast verification process with instant digital certificates, ensuring you get the authentication you need without delay.
                 </p>
             </div>

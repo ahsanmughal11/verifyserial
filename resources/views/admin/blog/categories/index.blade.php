@@ -1,8 +1,14 @@
-@extends('admin.blog.layout')
+@extends('layouts.admin')
 
 @section('title', 'Manage Categories')
-@section('pageTitle', 'Manage Categories')
-@section('crumb', 'Categories')
+@section('page-title', 'Manage Categories')
+
+@section('breadcrumb')
+<span>/</span>
+<span class="text-[#888]">Blog</span>
+<span>/</span>
+<span class="text-[#888]">Categories</span>
+@endsection
 
 @section('content')
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -10,10 +16,10 @@
         <h2 class="text-lg font-semibold mb-4 text-white">Create Category</h2>
         <form method="POST" action="{{ route('admin.blog.categories.store') }}" class="space-y-4">
             @csrf
-            <input type="text" name="name" value="{{ old('name') }}" placeholder="Name" class="w-full py-3 px-4 bg-[#151515] border border-[#2a2a2a] rounded-md text-white">
-            <input type="text" name="slug" value="{{ old('slug') }}" placeholder="Slug (optional)" class="w-full py-3 px-4 bg-[#151515] border border-[#2a2a2a] rounded-md text-white">
-            <textarea name="description" rows="4" placeholder="Description" class="w-full py-3 px-4 bg-[#151515] border border-[#2a2a2a] rounded-md text-white">{{ old('description') }}</textarea>
-            <button type="submit" class="w-full py-3 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] rounded-md font-semibold">Create Category</button>
+            <input type="text" name="name" value="{{ old('name') }}" placeholder="Name" class="w-full py-3 px-4 bg-[#151515] border border-[#2a2a2a] rounded-md text-white focus:outline-none focus:border-[#ffd700] transition-colors">
+            <input type="text" name="slug" value="{{ old('slug') }}" placeholder="Slug (optional)" class="w-full py-3 px-4 bg-[#151515] border border-[#2a2a2a] rounded-md text-white focus:outline-none focus:border-[#ffd700] transition-colors">
+            <textarea name="description" rows="4" placeholder="Description" class="w-full py-3 px-4 bg-[#151515] border border-[#2a2a2a] rounded-md text-white focus:outline-none focus:border-[#ffd700] transition-colors">{{ old('description') }}</textarea>
+            <button type="submit" class="w-full py-3 bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] rounded-md font-semibold border-none cursor-pointer hover:opacity-90 transition-opacity">Create Category</button>
         </form>
     </div>
 
@@ -29,17 +35,17 @@
             </thead>
             <tbody>
                 @forelse($categories as $category)
-                    <tr>
+                    <tr class="hover:bg-[rgba(255,215,0,0.05)]">
                         <td class="py-3 px-4 border-b border-[#2a2a2a]">{{ $category->name }}</td>
                         <td class="py-3 px-4 border-b border-[#2a2a2a] text-[#888]">{{ $category->slug }}</td>
                         <td class="py-3 px-4 border-b border-[#2a2a2a]">{{ $category->posts_count }}</td>
                         <td class="py-3 px-4 border-b border-[#2a2a2a]">
                             <div class="flex gap-2">
-                                <a href="{{ route('admin.blog.categories.edit', $category) }}" class="py-1.5 px-3 border border-[#ffd700] text-[#ffd700] rounded text-xs no-underline">Edit</a>
+                                <a href="{{ route('admin.blog.categories.edit', $category) }}" class="py-1.5 px-3 border border-[#ffd700] text-[#ffd700] rounded text-xs no-underline hover:bg-[#ffd700] hover:text-[#1a1a1a] transition-all duration-200">Edit</a>
                                 <form method="POST" action="{{ route('admin.blog.categories.destroy', $category) }}" onsubmit="return confirm('Delete this category?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="py-1.5 px-3 border border-[#ff6b6b] text-[#ff6b6b] rounded text-xs">Delete</button>
+                                    <button type="submit" class="py-1.5 px-3 border border-[#ff6b6b] text-[#ff6b6b] rounded text-xs bg-transparent cursor-pointer hover:bg-[#ff6b6b] hover:text-white transition-all duration-200">Delete</button>
                                 </form>
                             </div>
                         </td>

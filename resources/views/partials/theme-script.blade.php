@@ -46,10 +46,16 @@
             if (theme === 'light') {
                 icon.setAttribute('viewBox', '0 0 24 24');
                 icon.setAttribute('fill', 'currentColor');
+                icon.removeAttribute('stroke');
+                icon.removeAttribute('stroke-width');
+                icon.removeAttribute('stroke-linecap');
                 icon.innerHTML = '<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"/>';
             } else {
                 icon.setAttribute('viewBox', '0 0 24 24');
                 icon.setAttribute('fill', 'currentColor');
+                icon.setAttribute('stroke', 'currentColor');
+                icon.setAttribute('stroke-width', '2');
+                icon.setAttribute('stroke-linecap', 'round');
                 icon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/>';
             }
         }
@@ -59,4 +65,26 @@
         setTheme(newTheme);
         updateToggleButton(newTheme);
     };
+
+    // Sync icon on initial page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const theme = localStorage.getItem('kbe-theme') || 'dark';
+        const icon = document.getElementById('theme-icon');
+        if (!icon) return;
+        
+        icon.innerHTML = '';
+        if (theme === 'light') {
+            icon.setAttribute('fill', 'currentColor');
+            icon.removeAttribute('stroke');
+            icon.removeAttribute('stroke-width');
+            icon.removeAttribute('stroke-linecap');
+            icon.innerHTML = '<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"/>';
+        } else {
+            icon.setAttribute('fill', 'currentColor');
+            icon.setAttribute('stroke', 'currentColor');
+            icon.setAttribute('stroke-width', '2');
+            icon.setAttribute('stroke-linecap', 'round');
+            icon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/>';
+        }
+    });
 </script>

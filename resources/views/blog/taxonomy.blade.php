@@ -9,9 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans bg-[#1a1a1a] light-mode:bg-[#fafafa] text-white light-mode:text-[#1a1a1a] leading-relaxed transition-colors duration-300">
-    <header class="bg-[#1a1a1a] light-mode:bg-white px-[60px] py-5 border-b border-[#333] light-mode:border-[#e5e5e5]">
-        <a href="{{ route('blog.index') }}" class="text-[#ffd700] no-underline">← Back to Blog</a>
-    </header>
+    @include('partials.header')
 
     <section class="max-w-[1200px] mx-auto py-16 px-10">
         <h1 class="text-4xl font-bold mb-3">{{ $title }}</h1>
@@ -19,14 +17,28 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse($posts as $post)
-                <article class="bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] light-mode:from-white light-mode:to-[#f4f4f4] border border-[rgba(255,215,0,0.25)] light-mode:border-[#ddd] rounded-lg overflow-hidden">
+                <article class="bg-theme-gradient border border-theme-light rounded-lg overflow-hidden shadow-[0_8px_20px_var(--shadow-color)] transition-all duration-300 hover:-translate-y-1">
                     @if($post->featured_image)
                         <img src="{{ asset($post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover">
                     @endif
                     <div class="p-6">
-                        <div class="text-xs text-[#888] mb-2">{{ optional($post->publish_date)->format('M d, Y') }}</div>
-                        <h2 class="text-xl font-semibold mb-3"><a href="{{ route('blog.show', $post->slug) }}" class="no-underline hover:text-[#ffd700]">{{ $post->title }}</a></h2>
-                        <p class="text-sm text-[#ccc] light-mode:text-[#444] mb-4">{{ $post->excerpt }}</p>
+                        <div class="text-xs text-theme-muted mb-2 flex items-center gap-2">
+                            <span>{{ optional($post->publish_date)->format('M d, Y') }}</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="{{ route('blog.show', $post->slug) }}" class="no-underline text-theme-primary hover:text-theme-gold transition-colors duration-300">
+                                {{ $post->title }}
+                            </a>
+                        </h2>
+                        <p class="text-sm text-theme-secondary mb-4 line-clamp-3 leading-relaxed">
+                            {{ $post->excerpt }}
+                        </p>
+                        <a href="{{ route('blog.show', $post->slug) }}" class="text-theme-gold no-underline text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:gap-3 transition-all duration-300">
+                            Read More
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
                     </div>
                 </article>
             @empty

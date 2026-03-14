@@ -222,26 +222,8 @@
     </style>
 </head>
 <body class="font-sans bg-[#1a1a1a] text-white min-h-screen p-5">
-    <!-- Header -->
-    <header class="max-w-[1200px] mx-auto mb-10 flex justify-between items-center py-5">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-br from-[#d4af37] to-[#ffd700] rounded-full flex items-center justify-center">
-                <svg class="w-6 h-6 text-[#1a1a1a]" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-            </div>
-            <span class="text-lg font-semibold text-white">Karachi Bullion Exchange</span>
-        </div>
-        <div class="flex gap-5">
-            <svg class="w-6 h-6 text-[#ffd700] cursor-pointer transition-colors duration-300 hover:text-[#d4af37]" viewBox="0 0 24 24" fill="currentColor" onclick="shareCertificate()">
-                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
-            </svg>
-            <svg class="w-6 h-6 text-[#ffd700] cursor-pointer transition-colors duration-300 hover:text-[#d4af37]" viewBox="0 0 24 24" fill="currentColor" onclick="window.print()">
-                <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
-            </svg>
-        </div>
-    </header>
-
+    @include('partials.header')
+    
     <!-- Certificate Card -->
     <div class="max-w-[1000px] mx-auto bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] border-2 border-[#ffd700] rounded-xl p-8 md:p-6 relative shadow-[0_10px_40px_rgba(0,0,0,0.5)] before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[radial-gradient(circle,rgba(255,215,0,0.1)_1px,transparent_1px)] before:bg-[length:20px_20px] before:opacity-30 before:pointer-events-none before:rounded-xl">
         <div class="relative z-10">

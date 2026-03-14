@@ -48,7 +48,7 @@ class ProductController extends Controller
             'purity' => $request->purity,
         ]);
 
-        return redirect()->route('products.index')->with('success', 'Product added successfully!');
+        return redirect()->route('admin.products.index')->with('success', 'Product added successfully!');
     }
 
     public function edit(Product $product)
@@ -90,7 +90,7 @@ class ProductController extends Controller
             'purity' => $request->purity,
         ]);
 
-        return redirect()->route('products.index')->with('success', 'Product updated successfully!');
+        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully!');
     }
 
     public function destroy(Product $product)
@@ -101,6 +101,6 @@ class ProductController extends Controller
         }
         
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Product deleted successfully!');
+        return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully!');
     }
 }
