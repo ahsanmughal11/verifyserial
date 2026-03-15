@@ -43,18 +43,13 @@
         </div>
 
         <div class="mb-6">
-            <label for="image" class="block text-sm font-semibold text-[#cccccc] mb-2 uppercase tracking-wide">Product Image</label>
-            
-            @if($featuredProduct->image)
-                <div class="mb-4">
-                    <div class="text-xs text-[#888] mb-2">Current Image:</div>
-                    <img src="{{ asset($featuredProduct->image) }}" alt="{{ $featuredProduct->title }}" class="h-32 object-contain rounded-md border border-[#333] bg-[#0a0a0a] p-2">
-                </div>
-            @endif
-
-            <input type="file" id="image" name="image" accept="image/*"
-                   class="w-full bg-[#0a0a0a] border border-[#333] text-[#888] p-2.5 rounded-md text-sm transition-all duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#333] file:text-white hover:file:bg-[#444] cursor-pointer focus:outline-none focus:border-[#ffd700]">
-            <div class="text-xs text-[#666] mt-2">Leave empty to keep the current image. Recommended: Square image, max 5MB. Formats: JPG, PNG.</div>
+            <x-admin.file-upload
+                name="image"
+                label="Product Image"
+                accept="image/*"
+                :currentImage="$featuredProduct->image"
+                hint="Leave empty to keep the current image. Max 5MB. JPG, PNG, WebP."
+            />
         </div>
 
         <div class="mb-8">

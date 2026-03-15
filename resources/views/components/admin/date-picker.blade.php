@@ -130,9 +130,48 @@
 
         {{-- Time picker --}}
         <template x-if="showTime">
-            <div class="mt-4 pt-3 border-t border-[#2a2a2a] flex items-center gap-3">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-[#888] flex-shrink-0"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                <input type="time" x-model="time" class="flex-1 py-2 px-3 bg-[#151515] border border-[#2a2a2a] rounded-md text-white text-sm outline-none focus:border-[#ffd700]" />
+            <div class="mt-4 pt-4 border-t border-[#2a2a2a]">
+                <div class="flex items-center gap-2 mb-3">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-[#888]"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    <span class="text-xs text-[#888] font-semibold uppercase tracking-wider">Time</span>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    {{-- Hour block --}}
+                    <div class="flex flex-col items-center gap-1">
+                        <button @click="time = (String(((parseInt(time.split(':')[0] || 0) + 1) % 24 + 24) % 24).padStart(2,'0')) + ':' + (time.split(':')[1] || '00')" type="button"
+                                class="w-8 h-8 flex items-center justify-center rounded bg-[#222] hover:bg-[#ffd700] hover:text-[#1a1a1a] text-[#888] border-none cursor-pointer transition-all duration-150">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+                        </button>
+                        <input type="text"
+                               :value="time ? time.split(':')[0] : '00'"
+                               @change="time = String(((parseInt($event.target.value) % 24) + 24) % 24).padStart(2,'0') + ':' + (time.split(':')[1] || '00')"
+                               class="w-14 text-center text-xl font-bold text-white bg-[#151515] border border-[#2a2a2a] rounded-md py-2 outline-none focus:border-[#ffd700] transition-colors">
+                        <button @click="time = (String(((parseInt(time.split(':')[0] || 0) - 1 + 24) % 24)).padStart(2,'0')) + ':' + (time.split(':')[1] || '00')" type="button"
+                                class="w-8 h-8 flex items-center justify-center rounded bg-[#222] hover:bg-[#ffd700] hover:text-[#1a1a1a] text-[#888] border-none cursor-pointer transition-all duration-150">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                        </button>
+                        <span class="text-[10px] text-[#555] uppercase tracking-wider">Hour</span>
+                    </div>
+
+                    <span class="text-2xl font-bold text-[#555] mb-5">:</span>
+
+                    {{-- Minute block --}}
+                    <div class="flex flex-col items-center gap-1">
+                        <button @click="time = (time.split(':')[0] || '00') + ':' + String(((parseInt(time.split(':')[1] || 0) + 1) % 60 + 60) % 60).padStart(2,'0')" type="button"
+                                class="w-8 h-8 flex items-center justify-center rounded bg-[#222] hover:bg-[#ffd700] hover:text-[#1a1a1a] text-[#888] border-none cursor-pointer transition-all duration-150">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+                        </button>
+                        <input type="text"
+                               :value="time ? time.split(':')[1] : '00'"
+                               @change="time = (time.split(':')[0] || '00') + ':' + String(((parseInt($event.target.value) % 60) + 60) % 60).padStart(2,'0')"
+                               class="w-14 text-center text-xl font-bold text-white bg-[#151515] border border-[#2a2a2a] rounded-md py-2 outline-none focus:border-[#ffd700] transition-colors">
+                        <button @click="time = (time.split(':')[0] || '00') + ':' + String(((parseInt(time.split(':')[1] || 0) - 1 + 60) % 60)).padStart(2,'0')" type="button"
+                                class="w-8 h-8 flex items-center justify-center rounded bg-[#222] hover:bg-[#ffd700] hover:text-[#1a1a1a] text-[#888] border-none cursor-pointer transition-all duration-150">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                        </button>
+                        <span class="text-[10px] text-[#555] uppercase tracking-wider">Min</span>
+                    </div>
+                </div>
             </div>
         </template>
 

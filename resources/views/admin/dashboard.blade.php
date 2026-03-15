@@ -244,6 +244,9 @@
         <div>Laravel <span class="text-[#888]">v{{ app()->version() }}</span></div>
         <div>PHP <span class="text-[#888]">v{{ phpversion() }}</span></div>
         <div>Environment <span class="text-[#888]">{{ app()->environment() }}</span></div>
+        <div class="text-[12px] text-[#666]">
+            © {{ date('Y') }} Karachi Bullion Exchange • Developed by <a href="https://asdigitals.co" target="_blank" class="text-[#888] hover:text-[#ffd700]">AsDigitals.co</a>
+        </div>
     </div>
 </div>
 @endsection
