@@ -108,7 +108,7 @@
                     Our security team is available 24/7 to assist with authentication inquiries and high-value asset confirmation.
                 </p>
             </div>
-            <a href="mailto:verification@karachibullion.com" class="w-full md:w-auto py-4 px-8 bg-[#1a1a1a] text-[#ffd700] border-2 border-[#1a1a1a] rounded-md text-base font-bold cursor-pointer transition-all duration-300 hover:bg-[#2a2a2a] whitespace-nowrap text-center">Speak to an Expert</a>
+            <a href="mailto:contact@karachibullionexchange.com" class="w-full md:w-auto py-4 px-8 bg-[#1a1a1a] text-[#ffd700] border-2 border-[#1a1a1a] rounded-md text-base font-bold cursor-pointer transition-all duration-300 hover:bg-[#2a2a2a] whitespace-nowrap text-center">Speak to an Expert</a>
         </div>
     </section>
 

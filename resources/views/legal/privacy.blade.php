@@ -92,7 +92,7 @@
                     <li>Withdraw consent at any time</li>
                 </ul>
                 <p class="text-[#cccccc] light-mode:text-[#4a4a4a] leading-relaxed mt-4">
-                    To exercise these rights, please contact us at <a href="mailto:verification@karachibullion.com" class="text-[#ffd700] hover:underline">verification@karachibullion.com</a>.
+                    To exercise these rights, please contact us at <a href="mailto:contact@karachibullionexchange.com" class="text-[#ffd700] hover:underline">contact@karachibullionexchange.com</a>.
                 </p>
             </section>
 
@@ -130,9 +130,9 @@
                     If you have any questions about this Privacy Policy, please contact us:
                 </p>
                 <div class="text-[#cccccc] light-mode:text-[#4a4a4a] space-y-2">
-                    <p><strong>Email:</strong> <a href="mailto:verification@karachibullion.com" class="text-[#ffd700] hover:underline">verification@karachibullion.com</a></p>
-                    <p><strong>Phone:</strong> +92 21 3456 7890</p>
-                    <p><strong>Address:</strong> Main Bullion Market, Lyari, Karachi, Pakistan</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@karachibullionexchange.com" class="text-[#ffd700] hover:underline">contact@karachibullionexchange.com</a></p>
+                    <p><strong>Phone:</strong> +92 336 3975494 / +92 332 2365541</p>
+                    <p><strong>Address:</strong> Shop G-016, Gold Trade Centre, main Zaib-un-Nisa Street, Karachi</p>
                 </div>
             </section>
         </div>

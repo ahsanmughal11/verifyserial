@@ -133,8 +133,8 @@
                         <div>
                             <h3 class="text-lg font-bold mb-2 text-theme-gold">Office Address</h3>
                             <p class="text-theme-secondary text-[15px] leading-relaxed">
-                                Main Bullion Market, Lyari<br>
-                                Karachi, Pakistan
+                                Shop G-016, Gold Trade Centre, main Zaib-un-Nisa Street<br>
+                                Karachi
                             </p>
                         </div>
                     </div>
@@ -151,7 +151,8 @@
                         <div>
                             <h3 class="text-lg font-bold mb-2 text-theme-gold">Phone</h3>
                             <p class="text-theme-secondary text-[15px] leading-relaxed">
-                                <a href="tel:+922134567890" class="text-theme-secondary no-underline hover:text-theme-gold transition-colors duration-300">+92 21 3456 7890</a><br>
+                                <a href="tel:+923363975494" class="text-theme-secondary no-underline hover:text-theme-gold transition-colors duration-300">Saad Zikerwari: +92 336 3975494</a><br>
+                                <a href="tel:+923322365541" class="text-theme-secondary no-underline hover:text-theme-gold transition-colors duration-300">Muhammad Talha: +92 332 2365541</a><br>
                                 <span class="text-sm text-theme-muted">Mon - Sat: 9:00 AM - 6:00 PM</span>
                             </p>
                         </div>
@@ -169,7 +170,7 @@
                         <div>
                             <h3 class="text-lg font-bold mb-2 text-theme-gold">Email</h3>
                             <p class="text-theme-secondary text-[15px] leading-relaxed">
-                                <a href="mailto:verification@karachibullion.com" class="text-theme-secondary no-underline hover:text-theme-gold transition-colors duration-300">verification@karachibullion.com</a><br>
+                                <a href="mailto:contact@karachibullionexchange.com" class="text-theme-secondary no-underline hover:text-theme-gold transition-colors duration-300">contact@karachibullionexchange.com</a><br>
                                 <span class="text-sm text-theme-muted">We respond within 24 hours</span>
                             </p>
                         </div>

@@ -12,6 +12,12 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
 /* Light Mode Theme - Elegant Cream & Gold */
 :root.light-mode {
     --bg-primary: #fafafa;

@@ -30,7 +30,7 @@ class ContactController extends Controller
 
         // Here you can add email sending logic
         // For now, we'll just return success
-        // Mail::to('verification@karachibullion.com')->send(new ContactMail($request->all()));
+        // Mail::to('contact@karachibullionexchange.com')->send(new ContactMail($request->all()));
 
         return redirect()->route('contact')
             ->with('success', 'Thank you for contacting us! We will get back to you soon.');
