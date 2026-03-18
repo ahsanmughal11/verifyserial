@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Karachi Bullion Exchange</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     @include('partials.theme-script')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -213,7 +214,7 @@
     <!-- CTA Section -->
     <section class="max-w-[1200px] my-20 mx-auto px-10">
         <div class="bg-gradient-to-br from-[#d4af37] to-[#ffd700] text-[#1a1a1a] p-[50px] px-[60px] rounded-xl flex flex-col md:flex-row justify-between items-center relative overflow-hidden text-center md:text-left gap-6">
-            <div class="absolute -bottom-5 right-5 text-[200px] text-[rgba(26,26,26,0.1)] font-bold">🏛️</div>
+            <div class="absolute -bottom-5 right-5 text-[200px] text-[rgba(26,26,26,0.1)] font-bold">?</div>
             <div class="flex-1 text-center md:text-left">
                 <h2 class="text-4xl font-bold mb-4">Ready to Verify Your Assets?</h2>
                 <p class="text-base max-w-[500px] mx-auto md:mx-0">

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate of Authenticity - Karachi Bullion Exchange</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         @media print {
@@ -298,8 +299,8 @@
             <!-- Bottom Section -->
             <div class="flex justify-between items-end md:flex-col md:gap-4 md:items-center">
                 <div class="flex flex-col items-start md:items-center">
-                    <div class="w-16 h-16 bg-[#333] rounded-lg flex items-center justify-center mb-2 border border-[#555]">
-                        <div class="text-2xl font-bold text-[#ffd700] font-mono">KBR</div>
+                    <div class="w-20 h-20 bg-[#333] rounded-lg flex items-center justify-center mb-2 border border-[#555]">
+                        <img src="{{ asset('kbe-logo.png') }}" alt="KBE Logo" class="w-16 h-16 object-contain">
                     </div>
                     <div class="text-[10px] text-[#888] uppercase tracking-wide mb-0.5">DIGITAL SIGNATURE</div>
                     <div class="text-sm text-white italic">Chief Inspector, KBR</div>

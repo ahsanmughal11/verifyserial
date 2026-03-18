@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $post->meta_title ?: $post->title }}</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <meta name="description" content="{{ $post->meta_description ?: $post->excerpt }}">
     @include('partials.theme-script')
     @vite(['resources/css/app.css', 'resources/js/app.js'])

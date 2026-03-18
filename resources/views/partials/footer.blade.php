@@ -3,7 +3,7 @@
     <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 mb-10 md:gap-12">
         <div>
             <div class="flex items-center gap-4 mb-6">
-                <div class="w-[50px] h-[50px] bg-gradient-to-br from-[#d4af37] to-[#ffd700] rounded-sm flex items-center justify-center text-[28px]">🏛️</div>
+                <img src="{{ asset('kbe-logo.png') }}" alt="KBE Logo" class="w-[70px] h-[70px] object-contain">
                 <div class="flex flex-col">
                     <div class="text-[22px] font-bold text-[#ffd700] tracking-wide">KARACHI BULLION</div>
                     <div class="text-xs text-[#888] light-mode:text-[#6a6a6a] tracking-[0.5px]">EXCHANGE</div>

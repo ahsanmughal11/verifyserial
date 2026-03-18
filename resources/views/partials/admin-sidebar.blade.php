@@ -2,7 +2,7 @@
 <aside class="w-[280px] bg-gradient-to-b from-[#1a1a1a] to-[#151515] border-r border-[#2a2a2a] py-8 fixed h-screen overflow-y-auto z-[1000] flex flex-col">
     <div class="px-8 pb-8 border-b border-[#2a2a2a] mb-8">
         <div class="flex items-center gap-3">
-            <div class="w-[45px] h-[45px] bg-gradient-to-br from-[#d4af37] to-[#ffd700] rounded-sm flex items-center justify-center text-2xl">🏛️</div>
+            <img src="{{ asset('kbe-logo.png') }}" alt="KBE Logo" class="w-[60px] h-[60px] object-contain">
             <div class="flex flex-col">
                 <div class="text-lg font-bold text-[#ffd700] tracking-wide">KARACHI BULLION</div>
                 <div class="text-[10px] text-[#888] tracking-[0.5px]">ADMIN PANEL</div>

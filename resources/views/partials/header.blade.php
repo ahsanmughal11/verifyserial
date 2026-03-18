@@ -3,11 +3,9 @@
     
     <div class="flex justify-between items-center">
         <!-- Logo -->
-        <div class="flex items-center gap-3">
-            <a href="/" class="flex items-center gap-3 no-underline">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-[#d4af37] to-[#ffd700] rounded-sm flex items-center justify-center text-xl sm:text-2xl">
-                    🏛️
-                </div>
+        <div class="flex items-center gap-4">
+            <a href="/" class="flex items-center gap-4 no-underline">
+                <img src="{{ asset('kbe-logo.png') }}" alt="KBE Logo" class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
 
                 <div class="flex flex-col">
                     <div class="text-base sm:text-xl font-bold text-[#ffd700] tracking-wide">
@@ -99,7 +97,7 @@
                 class="w-9 h-9 flex items-center justify-center rounded-md bg-[#2a2a2a] light-mode:bg-[#e8e8e8] border border-[#333] light-mode:border-[#c0c0c0] text-[#ffd700] hover:bg-[#333] light-mode:hover:bg-[#d0d0d0] transition-all duration-300 cursor-pointer"
                 aria-label="Toggle theme"
             >
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <svg id="theme-icon-mobile" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                     <circle cx="12" cy="12" r="4"/>
                     <path d="M12 2v2"/>
                     <path d="M12 20v2"/>
