@@ -13,8 +13,8 @@
     @include('partials.header')
 
     <section class="max-w-[1200px] mx-auto py-16 px-10">
-        <h1 class="text-5xl font-bold mb-4">KBE Blog</h1>
-        <p class="text-[#ccc] light-mode:text-[#444] mb-10">Insights, guides, and updates from Karachi Bullion Exchange.</p>
+        <h1 class="text-5xl font-bold mb-4">KSE Blog</h1>
+        <p class="text-[#ccc] light-mode:text-[#444] mb-10">Insights, guides, and updates from Karachi Silver Enterprise.</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse($posts as $post)

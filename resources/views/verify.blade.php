@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karachi Bullion Exchange - Asset Verification</title>
+    <title>Karachi Silver Enterprise - Asset Verification</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     @include('partials.theme-script')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,7 +20,7 @@
             AUTHENTICITY GUARANTEE
     </div>
         <h1 class="text-5xl font-bold mb-5 leading-tight md:text-[32px]">
-            Verify Your <span class="text-[#ffd700]">KBE Asset</span>
+            Verify Your <span class="text-[#ffd700]">KSE Asset</span>
         </h1>
         <p class="text-lg text-[#cccccc] light-mode:text-[#2d2d2d] max-w-[700px] mx-auto mb-10">
             Enter the unique serial number engraved on your gold or silver bullion to confirm purity, weight, and refinery origin in our global secure database.

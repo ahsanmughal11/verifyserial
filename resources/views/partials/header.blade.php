@@ -9,10 +9,10 @@
 
                 <div class="flex flex-col">
                     <div class="text-base sm:text-xl font-bold text-[#ffd700] tracking-wide">
-                        KARACHI BULLION
+                        KARACHI SILVER
                     </div>
                     <div class="text-[10px] sm:text-[11px] text-[#cccccc] light-mode:text-[#6a6a6a] tracking-[0.5px]">
-                        EXCHANGE
+                        ENTERPRISE
                     </div>
                 </div>
             </a>

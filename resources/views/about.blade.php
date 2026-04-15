@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Karachi Bullion Exchange</title>
+    <title>About Us - Karachi Silver Enterprise</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     @include('partials.theme-script')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,7 +20,7 @@
             ESTABLISHED 1995
         </div>
         <h1 class="text-5xl font-bold mb-5 leading-tight md:text-[32px]">
-            About <span class="text-[#ffd700] light-mode:text-[#b8860b]">Karachi Bullion Exchange</span>
+            About <span class="text-[#ffd700] light-mode:text-[#b8860b]">Karachi Silver Enterprise</span>
         </h1>
         <p class="text-lg text-[#cccccc] light-mode:text-[#444444] max-w-[700px] mx-auto mb-10">
             Three decades of excellence in precious metals trading, authentication, and verification. Trusted by investors, collectors, and institutions worldwide.
@@ -39,7 +39,7 @@
                 </h2>
                 <div class="space-y-4 text-[#cccccc] light-mode:text-[#4a4a4a] text-[15px] leading-relaxed">
                     <p>
-                        Founded in 1995, Karachi Bullion Exchange has been at the forefront of precious metals trading in Pakistan and the broader region. What started as a small family business has grown into one of the most trusted names in bullion verification and authentication.
+                        Founded in 1995, Karachi Silver Enterprise has been at the forefront of precious metals trading in Pakistan and the broader region. What started as a small family business has grown into one of the most trusted names in bullion verification and authentication.
                     </p>
                     <p>
                         Our journey began with a simple mission: to provide investors and collectors with genuine, certified precious metals backed by transparent verification systems. Over the years, we've built a reputation for uncompromising quality, ethical practices, and innovative security solutions.
@@ -133,7 +133,7 @@
                 <span class="text-[#ffd700] text-sm font-semibold tracking-[2px] uppercase">Excellence</span>
             </div>
             <h2 class="text-4xl font-bold mb-4 text-white md:text-3xl">
-                Why Choose <span class="text-[#ffd700]">Karachi Bullion Exchange</span>
+                Why Choose <span class="text-[#ffd700]">Karachi Silver Enterprise</span>
             </h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -218,7 +218,7 @@
             <div class="flex-1 text-center md:text-left">
                 <h2 class="text-4xl font-bold mb-4">Ready to Verify Your Assets?</h2>
                 <p class="text-base max-w-[500px] mx-auto md:mx-0">
-                    Join thousands of satisfied customers who trust Karachi Bullion Exchange for authentic, verified precious metals.
+                    Join thousands of satisfied customers who trust Karachi Silver Enterprise for authentic, verified precious metals.
                 </p>
             </div>
             <div class="flex gap-4 md:flex-row flex-col w-full md:w-auto">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Karachi Bullion Exchange</title>
+    <title>Contact Us - Karachi Silver Enterprise</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     @include('partials.theme-script')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,7 +20,7 @@
             GET IN TOUCH
         </div>
         <h1 class="text-5xl font-bold mb-5 leading-tight md:text-[32px]">
-            Contact <span class="text-[#ffd700]">Karachi Bullion Exchange</span>
+            Contact <span class="text-[#ffd700]">Karachi Silver Enterprise</span>
         </h1>
         <p class="text-lg text-[#cccccc] max-w-[700px] mx-auto mb-10">
             Have questions about our products, verification process, or need assistance? We're here to help. Reach out to our expert team.

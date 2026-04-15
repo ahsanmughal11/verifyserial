@@ -5,8 +5,8 @@
             <div class="flex items-center gap-4 mb-6">
                 <img src="{{ asset('kbe-logo.png') }}" alt="KBE Logo" class="w-[70px] h-[70px] object-contain">
                 <div class="flex flex-col">
-                    <div class="text-[22px] font-bold text-[#ffd700] tracking-wide">KARACHI BULLION</div>
-                    <div class="text-xs text-[#888] light-mode:text-[#6a6a6a] tracking-[0.5px]">EXCHANGE</div>
+                    <div class="text-[22px] font-bold text-[#ffd700] tracking-wide">KARACHI SILVER</div>
+                    <div class="text-xs text-[#888] light-mode:text-[#6a6a6a] tracking-[0.5px]">ENTERPRISE</div>
                 </div>
             </div>
             <p class="text-[15px] text-[#cccccc] light-mode:text-[#4a4a4a] leading-[1.9] max-w-[500px]">
@@ -38,7 +38,7 @@
     <div class="max-w-[1200px] mx-auto pt-8 border-t border-[#333] light-mode:border-[#d4d4d4]">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
             <div class="text-[13px] text-[#888] light-mode:text-[#555555] text-center md:text-left">
-                <span>© 2026 Karachi Bullion Exchange. All Rights Reserved.</span> 
+                <span>© 2026 Karachi Silver Enterprise. All Rights Reserved.</span> 
             </div>
             <div class="flex items-center gap-4 flex-wrap justify-center">
                 <a href="{{ route('legal.privacy') }}" class="text-[#cccccc] light-mode:text-[#444444] no-underline text-sm transition-colors duration-300 hover:text-[#ffd700] light-mode:hover:text-[#b8860b]">Privacy Policy</a>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate of Authenticity - Karachi Bullion Exchange</title>
+    <title>Certificate of Authenticity - Karachi Silver Enterprise</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
@@ -293,7 +293,7 @@
 
             <!-- Certificate Description -->
             <div class="text-xs text-[#cccccc] leading-relaxed text-center mb-6 px-4">
-                This digital certificate confirms that the item described has been inspected and meets the quality standards of Karachi Bullion Exchange.
+                This digital certificate confirms that the item described has been inspected and meets the quality standards of Karachi Silver Enterprise.
             </div>
 
             <!-- Bottom Section -->
@@ -338,7 +338,7 @@
             if (navigator.share) {
                 navigator.share({
                     title: 'Certificate of Authenticity - {{ $product->product_name }}',
-                    text: 'Verified authentic product from Karachi Bullion Exchange',
+                    text: 'Verified authentic product from Karachi Silver Enterprise',
                     url: window.location.href
                 }).catch(err => console.log('Error sharing', err));
             } else {

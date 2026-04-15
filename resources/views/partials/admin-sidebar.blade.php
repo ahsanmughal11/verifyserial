@@ -4,7 +4,7 @@
         <div class="flex items-center gap-3">
             <img src="{{ asset('kbe-logo.png') }}" alt="KBE Logo" class="w-[60px] h-[60px] object-contain">
             <div class="flex flex-col">
-                <div class="text-lg font-bold text-[#ffd700] tracking-wide">KARACHI BULLION</div>
+                <div class="text-lg font-bold text-[#ffd700] tracking-wide">KARACHI SILVER ENTERPRISE</div>
                 <div class="text-[10px] text-[#888] tracking-[0.5px]">ADMIN PANEL</div>
             </div>
         </div>

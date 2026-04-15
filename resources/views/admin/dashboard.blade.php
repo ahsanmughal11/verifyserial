@@ -245,7 +245,7 @@
         <div>PHP <span class="text-[#888]">v{{ phpversion() }}</span></div>
         <div>Environment <span class="text-[#888]">{{ app()->environment() }}</span></div>
         <div class="text-[12px] text-[#666]">
-            © {{ date('Y') }} Karachi Bullion Exchange
+            © {{ date('Y') }} Karachi Silver Enterprise
         </div>
     </div>
 </div>
