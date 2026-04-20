@@ -69,7 +69,8 @@
                             </div>
                             <h1
                                 class="text-3xl md:text-4xl font-bold text-white light-mode:text-[#1a1a1a] leading-tight mb-2">
-                                {{ $featuredProduct->title }}</h1>
+                                {{ $featuredProduct->title }}
+                            </h1>
                             <div class="w-20 h-1 bg-gradient-to-r from-[#ffd700] to-[#d4af37] rounded-full mt-4"></div>
                         </div>
 
@@ -99,7 +100,7 @@
                                     </path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
-                                Inquire Now
+                                Inquire Now Bro!
                             </a>
                         </div>
                     </div>
