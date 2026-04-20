@@ -10,8 +10,10 @@ class Product extends Model
         'serial_number',
         'product_name',
         'product_picture',
+        'xrf_image',
         'manufacturing_date',
         'weight',
+        'weight_unit',
         'purity',
     ];
 

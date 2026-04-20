@@ -246,49 +246,74 @@
                 <div class="text-xs text-[#cccccc]">Genuine Product Status</div>
             </div>
 
-            <!-- Product Information -->
-            <div class="product-info-grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+            <!-- Product & XRF Images Side by Side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+                <!-- Product Image (Left) -->
                 <div class="text-center px-2">
+                    <div class="text-[10px] text-[#d4af37] tracking-[1.5px] mb-3 uppercase font-semibold">Product Image</div>
                     @if($product->product_picture)
-                        <img src="{{ asset($product->product_picture) }}" alt="{{ $product->product_name }}" class="w-full max-w-[300px] h-auto max-h-[300px] mx-auto rounded-lg shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-2 bg-[#1a1a1a] p-2">
+                        <div class="bg-[#1a1a1a] border border-[#333] rounded-lg p-3 inline-block">
+                            <img src="{{ asset($product->product_picture) }}" alt="{{ $product->product_name }}" class="w-full max-w-[300px] h-auto max-h-[280px] mx-auto rounded-lg shadow-[0_5px_20px_rgba(0,0,0,0.5)]">
+                        </div>
                     @else
-                        <div class="product-image flex items-center justify-center min-h-[150px] max-h-[250px] w-full max-w-[300px] mx-auto text-[#666] rounded-lg shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-2 bg-[#1a1a1a] p-2">
-                            No Image Available
+                        <div class="bg-[#1a1a1a] border border-[#333] rounded-lg p-3 inline-block">
+                            <div class="flex items-center justify-center min-h-[150px] max-h-[280px] w-full max-w-[300px] mx-auto text-[#666] rounded-lg">
+                                No Image Available
+                            </div>
                         </div>
                     @endif
-                    <div class="text-sm text-white font-semibold">{{ $product->product_name }}</div>
+                    <div class="text-sm text-white font-semibold mt-2">{{ $product->product_name }}</div>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <div class="flex flex-col">
-                        <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">PRODUCT NAME</div>
-                        <div class="text-lg font-bold text-white flex items-center gap-2">{{ $product->product_name }}</div>
-                    </div>
-                    <div class="flex flex-col">
-                        <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">SERIAL NUMBER</div>
-                        <div class="text-lg font-bold text-white flex items-center gap-2">{{ $product->serial_number }}</div>
-                    </div>
-                    <div class="flex flex-col">
-                        <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">MANUFACTURED DATE</div>
-                        <div class="text-lg font-bold text-white flex items-center gap-2">{{ $product->manufacturing_date->format('F d, Y') }}</div>
-                    </div>
-                    @if($product->weight)
-                    <div class="flex flex-col">
-                        <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">WEIGHT</div>
-                        <div class="text-lg font-bold text-white flex items-center gap-2">{{ number_format($product->weight, 2) }} Tola</div>
-                    </div>
-                    @endif
-                    @if($product->purity)
-                    <div class="flex flex-col">
-                        <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">PURITY RATING</div>
-                        <div class="text-lg font-bold text-white flex items-center gap-2">
-                            {{ $product->purity }}
-                            <svg class="w-4 h-4 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                            </svg>
+
+                <!-- XRF Analysis Image (Right) -->
+                <div class="text-center px-2">
+                    <div class="text-[10px] text-[#d4af37] tracking-[1.5px] mb-3 uppercase font-semibold">XRF Analysis Report</div>
+                    @if($product->xrf_image)
+                        <div class="bg-[#1a1a1a] border border-[#333] rounded-lg p-3 inline-block">
+                            <img src="{{ asset($product->xrf_image) }}" alt="XRF Analysis - {{ $product->product_name }}" class="w-full max-w-[300px] h-auto max-h-[280px] mx-auto rounded-lg shadow-[0_5px_20px_rgba(0,0,0,0.5)]">
                         </div>
-                    </div>
+                    @else
+                        <div class="bg-[#1a1a1a] border border-[#333] rounded-lg p-3 inline-block">
+                            <div class="flex items-center justify-center min-h-[150px] max-h-[280px] w-full max-w-[300px] mx-auto text-[#666] rounded-lg">
+                                No XRF Image
+                            </div>
+                        </div>
                     @endif
+                    <div class="text-[11px] text-[#888] mt-2">X-Ray Fluorescence Analysis</div>
                 </div>
+            </div>
+
+            <!-- Product Details Below Images -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 bg-[#1a1a1a] border border-[#333] rounded-lg p-5">
+                <div class="flex flex-col text-center">
+                    <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">PRODUCT NAME</div>
+                    <div class="text-base font-bold text-white">{{ $product->product_name }}</div>
+                </div>
+                <div class="flex flex-col text-center">
+                    <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">SERIAL NUMBER</div>
+                    <div class="text-base font-bold text-[#ffd700]">{{ $product->serial_number }}</div>
+                </div>
+                <div class="flex flex-col text-center">
+                    <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">MANUFACTURED DATE</div>
+                    <div class="text-base font-bold text-white">{{ $product->manufacturing_date->format('F d, Y') }}</div>
+                </div>
+                @if($product->weight)
+                <div class="flex flex-col text-center">
+                    <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">WEIGHT</div>
+                    <div class="text-base font-bold text-white">{{ number_format($product->weight, 2) }} {{ ucfirst($product->weight_unit ?? 'Tola') }}</div>
+                </div>
+                @endif
+                @if($product->purity)
+                <div class="flex flex-col text-center">
+                    <div class="text-[10px] text-[#888] uppercase tracking-wide mb-1">PURITY RATING</div>
+                    <div class="text-base font-bold text-white flex items-center justify-center gap-2">
+                        {{ $product->purity }}
+                        <svg class="w-4 h-4 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                </div>
+                @endif
             </div>
 
             <!-- Certificate Description -->

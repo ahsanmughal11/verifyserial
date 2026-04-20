@@ -45,6 +45,12 @@
             </div>
             
             <div class="mb-6">
+                <label class="block mb-2 text-[#cccccc] text-sm font-medium">XRF Image:</label>
+                <input type="file" name="xrf_image" accept="image/*" class="w-full py-3 px-4 bg-[#1a1a1a] border-2 border-[rgba(255,215,0,0.3)] rounded-sm text-white outline-none transition-all duration-300 focus:border-[#ffd700] focus:shadow-[0_0_10px_rgba(255,215,0,0.2)]">
+                <p class="text-[#666] text-[11px] mt-1">Upload XRF (X-Ray Fluorescence) analysis image</p>
+            </div>
+            
+            <div class="mb-6">
                 <label class="block mb-2 text-[#cccccc] text-sm font-medium">Manufacturing Date:</label>
                 <input type="date" name="manufacturing_date" value="{{ old('manufacturing_date') }}" required class="w-full py-3 px-4 bg-[#1a1a1a] border-2 border-[rgba(255,215,0,0.3)] rounded-sm text-white outline-none transition-all duration-300 focus:border-[#ffd700] focus:shadow-[0_0_10px_rgba(255,215,0,0.2)]">
             </div>

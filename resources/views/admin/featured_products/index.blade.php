@@ -18,6 +18,23 @@
 @endsection
 
 @section('content')
+<style>
+    .tooltip-wrap { position: relative; }
+    .tooltip-wrap .tooltip-text {
+        visibility: hidden; opacity: 0;
+        position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+        background: #333; color: #fff; font-size: 11px; font-weight: 500;
+        padding: 5px 10px; border-radius: 4px; white-space: nowrap; z-index: 50;
+        transition: opacity 0.2s, visibility 0.2s;
+        pointer-events: none;
+    }
+    .tooltip-wrap .tooltip-text::after {
+        content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+        border: 5px solid transparent; border-top-color: #333;
+    }
+    .tooltip-wrap:hover .tooltip-text { visibility: visible; opacity: 1; }
+</style>
+
 <div class="bg-[#151515] border border-[#2a2a2a] rounded-lg overflow-hidden shadow-lg">
     <table class="w-full border-collapse text-left">
         <thead>
@@ -49,18 +66,20 @@
                     </td>
                     <td class="p-5 text-right">
                         <div class="flex justify-end gap-3">
-                            <a href="{{ route('admin.featured-products.edit', $product->id) }}" class="p-2 bg-[rgba(255,215,0,0.1)] text-[#ffd700] rounded hover:bg-[#ffd700] hover:text-[#1a1a1a] transition-all duration-300" title="Edit">
+                            <a href="{{ route('admin.featured-products.edit', $product->id) }}" class="tooltip-wrap p-2 bg-[rgba(255,215,0,0.1)] text-[#ffd700] rounded hover:bg-[#ffd700] hover:text-[#1a1a1a] transition-all duration-300 no-underline">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                                 </svg>
+                                <span class="tooltip-text">Edit Product</span>
                             </a>
                             <form action="{{ route('admin.featured-products.destroy', $product->id) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure you want to delete this product?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="p-2 bg-[rgba(255,107,107,0.1)] text-[#ff6b6b] rounded hover:bg-[#ff6b6b] hover:text-white transition-all duration-300" title="Delete">
+                                <button type="submit" class="tooltip-wrap p-2 bg-[rgba(255,107,107,0.1)] text-[#ff6b6b] rounded hover:bg-[#ff6b6b] hover:text-white transition-all duration-300 cursor-pointer">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.89 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                                     </svg>
+                                    <span class="tooltip-text">Delete Product</span>
                                 </button>
                             </form>
                         </div>

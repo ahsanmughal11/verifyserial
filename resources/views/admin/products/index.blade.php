@@ -20,6 +20,23 @@
 @endsection
 
 @section('content')
+    <style>
+        .tooltip-wrap { position: relative; }
+        .tooltip-wrap .tooltip-text {
+            visibility: hidden; opacity: 0;
+            position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+            background: #333; color: #fff; font-size: 11px; font-weight: 500;
+            padding: 5px 10px; border-radius: 4px; white-space: nowrap; z-index: 50;
+            transition: opacity 0.2s, visibility 0.2s;
+            pointer-events: none;
+        }
+        .tooltip-wrap .tooltip-text::after {
+            content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            border: 5px solid transparent; border-top-color: #333;
+        }
+        .tooltip-wrap:hover .tooltip-text { visibility: visible; opacity: 1; }
+    </style>
+
     @if($products->count() > 0)
         <div class="bg-gradient-to-br from-[#1f1f1f] to-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-0 overflow-hidden">
             <div class="py-6 px-8 border-b border-[#2a2a2a] flex justify-between items-center">
@@ -31,10 +48,11 @@
                         <tr>
                             <th class="py-4.5 px-8 text-left border-b border-[#2a2a2a] bg-transparent font-semibold text-[#ffd700] text-xs uppercase tracking-wide whitespace-nowrap">ID</th>
                             <th class="py-4.5 px-8 text-left border-b border-[#2a2a2a] bg-transparent font-semibold text-[#ffd700] text-xs uppercase tracking-wide whitespace-nowrap">Image</th>
+                            <th class="py-4.5 px-8 text-left border-b border-[#2a2a2a] bg-transparent font-semibold text-[#ffd700] text-xs uppercase tracking-wide whitespace-nowrap">XRF Image</th>
                             <th class="py-4.5 px-8 text-left border-b border-[#2a2a2a] bg-transparent font-semibold text-[#ffd700] text-xs uppercase tracking-wide whitespace-nowrap">Serial Number</th>
                             <th class="py-4.5 px-8 text-left border-b border-[#2a2a2a] bg-transparent font-semibold text-[#ffd700] text-xs uppercase tracking-wide whitespace-nowrap">Product Name</th>
                             <th class="py-4.5 px-8 text-left border-b border-[#2a2a2a] bg-transparent font-semibold text-[#ffd700] text-xs uppercase tracking-wide whitespace-nowrap">Manufacturing Date</th>
-                            <th class="py-4.5 px-8 text-left border-b border-[#2a2a2a] bg-transparent font-semibold text-[#ffd700] text-xs uppercase tracking-wide whitespace-nowrap">Actions</th>
+                            <th class="py-4.5 px-8 text-center border-b border-[#2a2a2a] bg-transparent font-semibold text-[#ffd700] text-xs uppercase tracking-wide whitespace-nowrap">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,16 +66,29 @@
                                         <div class="w-[60px] h-[60px] bg-[#151515] border border-[#2a2a2a] rounded-md flex items-center justify-center text-[#666] text-[11px] text-center">No Image</div>
                                     @endif
                                 </td>
+                                <td class="py-4.5 px-8 text-left border-b border-[#2a2a2a] text-[#cccccc] text-sm">
+                                    @if($product->xrf_image)
+                                        <img src="{{ asset($product->xrf_image) }}" alt="XRF - {{ $product->product_name }}" class="w-[60px] h-[60px] object-cover rounded-md border border-[#2a2a2a]">
+                                    @else
+                                        <div class="w-[60px] h-[60px] bg-[#151515] border border-[#2a2a2a] rounded-md flex items-center justify-center text-[#666] text-[11px] text-center">No XRF</div>
+                                    @endif
+                                </td>
                                 <td class="py-4.5 px-8 text-left border-b border-[#2a2a2a] text-[#cccccc] text-sm"><strong class="text-[#ffd700]">{{ $product->serial_number }}</strong></td>
                                 <td class="py-4.5 px-8 text-left border-b border-[#2a2a2a] text-[#cccccc] text-sm">{{ $product->product_name }}</td>
                                 <td class="py-4.5 px-8 text-left border-b border-[#2a2a2a] text-[#cccccc] text-sm">{{ $product->manufacturing_date->format('M d, Y') }}</td>
-                                <td class="py-4.5 px-8 text-left border-b border-[#2a2a2a] text-[#cccccc] text-sm">
-                                    <div class="flex gap-2.5">
-                                        <a href="{{ route('admin.products.edit', $product) }}" class="py-2 px-4 bg-transparent text-[#ffd700] border border-[#ffd700] rounded-md text-[13px] no-underline transition-all duration-300 hover:bg-[#ffd700] hover:text-[#1a1a1a]">Edit</a>
+                                <td class="py-4.5 px-8 text-center border-b border-[#2a2a2a] text-[#cccccc] text-sm">
+                                    <div class="flex gap-2 justify-center">
+                                        <a href="{{ route('admin.products.edit', $product) }}" class="tooltip-wrap w-9 h-9 flex items-center justify-center rounded-lg border border-[#2a2a2a] bg-transparent text-[#ffd700] no-underline transition-all duration-200 hover:bg-[#ffd700] hover:text-[#1a1a1a] hover:border-[#ffd700]">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                                            <span class="tooltip-text">Edit Product</span>
+                                        </a>
                                         <form method="POST" action="{{ route('admin.products.destroy', $product) }}" class="inline" onsubmit="return confirm('Are you sure you want to delete this product?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="py-2 px-4 bg-transparent text-[#ff6b6b] border border-[#ff6b6b] rounded-md text-[13px] transition-all duration-300 hover:bg-[#ff6b6b] hover:text-white cursor-pointer">Delete</button>
+                                            <button type="submit" class="tooltip-wrap w-9 h-9 flex items-center justify-center rounded-lg border border-[#2a2a2a] bg-transparent text-[#ff6b6b] transition-all duration-200 hover:bg-[#ff6b6b] hover:text-white hover:border-[#ff6b6b] cursor-pointer">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                                                <span class="tooltip-text">Delete Product</span>
+                                            </button>
                                         </form>
                                     </div>
                                 </td>

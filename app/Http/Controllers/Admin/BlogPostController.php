@@ -35,7 +35,7 @@ class BlogPostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:blog_posts,slug',
-            'content' => 'required|json',
+            'content' => 'required|string',
             'excerpt' => 'nullable|string',
             'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5056',
             'meta_title' => 'nullable|string|max:255',
@@ -87,7 +87,7 @@ class BlogPostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:blog_posts,slug,' . $post->id,
-            'content' => 'required|json',
+            'content' => 'required|string',
             'excerpt' => 'nullable|string',
             'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5056',
             'meta_title' => 'nullable|string|max:255',

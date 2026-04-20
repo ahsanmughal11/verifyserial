@@ -19,8 +19,8 @@ class BlogController extends Controller
 
         return view('blog.index', [
             'posts' => $posts,
-            'metaTitle' => 'Blog - Karachi Bullion Exchange',
-            'metaDescription' => 'Read latest insights, updates, and guides from Karachi Bullion Exchange.',
+            'metaTitle' => 'Blog - Karachi Silver Enterprise',
+            'metaDescription' => 'Read latest insights, updates, and guides from Karachi Silver Enterprise.',
         ]);
     }
 

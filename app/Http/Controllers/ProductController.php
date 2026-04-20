@@ -25,6 +25,7 @@ class ProductController extends Controller
             'serial_number' => 'required|unique:products,serial_number',
             'product_name' => 'required|string',
             'product_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5056',
+            'xrf_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5056',
             'manufacturing_date' => 'required|date',
             'weight' => 'nullable|numeric|min:0',
             'purity' => 'nullable|string|max:255',
@@ -39,12 +40,23 @@ class ProductController extends Controller
             $productPicturePath = 'storage/products/' . $fileName;
         }
 
+        $xrfImagePath = null;
+
+        if ($request->hasFile('xrf_image')) {
+            $file = $request->file('xrf_image');
+            $fileName = time() . '_xrf_' . $file->getClientOriginalName();
+            $storedPath = Storage::disk('public')->putFileAs('products', $file, $fileName);
+            $xrfImagePath = 'storage/products/' . $fileName;
+        }
+
         Product::create([
             'serial_number' => $request->serial_number,
             'product_name' => $request->product_name,
             'product_picture' => $productPicturePath,
+            'xrf_image' => $xrfImagePath,
             'manufacturing_date' => $request->manufacturing_date,
             'weight' => $request->weight,
+            'weight_unit' => $request->weight_unit ?? 'tola',
             'purity' => $request->purity,
         ]);
 
@@ -62,6 +74,7 @@ class ProductController extends Controller
             'serial_number' => 'required|unique:products,serial_number,' . $product->id,
             'product_name' => 'required|string',
             'product_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5056',
+            'xrf_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5056',
             'manufacturing_date' => 'required|date',
             'weight' => 'nullable|numeric|min:0',
             'purity' => 'nullable|string|max:255',
@@ -81,12 +94,28 @@ class ProductController extends Controller
             $productPicturePath = 'storage/products/' . $fileName;
         }
 
+        $xrfImagePath = $product->xrf_image;
+
+        if ($request->hasFile('xrf_image')) {
+            // Delete old XRF image if exists
+            if ($product->xrf_image && Storage::disk('public')->exists(str_replace('storage/', '', $product->xrf_image))) {
+                Storage::disk('public')->delete(str_replace('storage/', '', $product->xrf_image));
+            }
+
+            $file = $request->file('xrf_image');
+            $fileName = time() . '_xrf_' . $file->getClientOriginalName();
+            $storedPath = Storage::disk('public')->putFileAs('products', $file, $fileName);
+            $xrfImagePath = 'storage/products/' . $fileName;
+        }
+
         $product->update([
             'serial_number' => $request->serial_number,
             'product_name' => $request->product_name,
             'product_picture' => $productPicturePath,
+            'xrf_image' => $xrfImagePath,
             'manufacturing_date' => $request->manufacturing_date,
             'weight' => $request->weight,
+            'weight_unit' => $request->weight_unit ?? 'tola',
             'purity' => $request->purity,
         ]);
 
@@ -98,6 +127,11 @@ class ProductController extends Controller
         // Delete product picture if exists
         if ($product->product_picture && Storage::disk('public')->exists(str_replace('storage/', '', $product->product_picture))) {
             Storage::disk('public')->delete(str_replace('storage/', '', $product->product_picture));
+        }
+
+        // Delete XRF image if exists
+        if ($product->xrf_image && Storage::disk('public')->exists(str_replace('storage/', '', $product->xrf_image))) {
+            Storage::disk('public')->delete(str_replace('storage/', '', $product->xrf_image));
         }
         
         $product->delete();
