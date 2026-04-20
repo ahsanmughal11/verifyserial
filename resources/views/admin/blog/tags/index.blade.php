@@ -42,42 +42,48 @@
     <div class="lg:col-span-2 bg-gradient-to-br from-[#1f1f1f] to-[#1a1a1a] border border-[#2a2a2a] rounded-lg overflow-hidden">
         <table class="w-full border-collapse">
             <thead>
-                <tr>
-                    <th class="py-3 px-4 border-b border-[#2a2a2a] text-left text-xs uppercase text-[#ffd700]">Name</th>
-                    <th class="py-3 px-4 border-b border-[#2a2a2a] text-left text-xs uppercase text-[#ffd700]">Slug</th>
-                    <th class="py-3 px-4 border-b border-[#2a2a2a] text-left text-xs uppercase text-[#ffd700]">Posts</th>
-                    <th class="py-3 px-4 border-b border-[#2a2a2a] text-center text-xs uppercase text-[#ffd700]">Actions</th>
+                <tr class="bg-[rgba(0,0,0,0.2)]">
+                    <th class="py-4 px-6 border-b border-[#2a2a2a] text-left text-[11px] font-bold uppercase text-[#ffd700] tracking-wider">Sr. No.</th>
+                    <th class="py-4 px-6 border-b border-[#2a2a2a] text-left text-[11px] font-bold uppercase text-[#ffd700] tracking-wider">Name</th>
+                    <th class="py-4 px-6 border-b border-[#2a2a2a] text-left text-[11px] font-bold uppercase text-[#ffd700] tracking-wider">Slug</th>
+                    <th class="py-4 px-6 border-b border-[#2a2a2a] text-left text-[11px] font-bold uppercase text-[#ffd700] tracking-wider">Posts</th>
+                    <th class="py-4 px-6 border-b border-[#2a2a2a] text-center text-[11px] font-bold uppercase text-[#ffd700] tracking-wider">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse($tags as $tag)
-                    <tr class="hover:bg-[rgba(255,215,0,0.05)]">
-                        <td class="py-3 px-4 border-b border-[#2a2a2a]">{{ $tag->name }}</td>
-                        <td class="py-3 px-4 border-b border-[#2a2a2a] text-[#888]">{{ $tag->slug }}</td>
-                        <td class="py-3 px-4 border-b border-[#2a2a2a]">{{ $tag->posts_count }}</td>
-                        <td class="py-3 px-4 border-b border-[#2a2a2a]">
+                    @php
+                        $srNo = (($tags->currentPage() - 1) * $tags->perPage()) + $loop->iteration;
+                    @endphp
+                    <tr class="hover:bg-[rgba(255,215,0,0.03)] transition-colors duration-200">
+                        <td class="py-4 px-6 border-b border-[#2a2a2a] text-[#888] font-mono text-xs">{{ str_pad($srNo, 2, '0', STR_PAD_LEFT) }}</td>
+                        <td class="py-4 px-6 border-b border-[#2a2a2a] text-white font-medium">{{ $tag->name }}</td>
+                        <td class="py-4 px-6 border-b border-[#2a2a2a] text-[#666] text-xs font-mono">{{ $tag->slug }}</td>
+                        <td class="py-4 px-6 border-b border-[#2a2a2a] text-[#ccc] text-sm">{{ $tag->posts_count }}</td>
+                        <td class="py-4 px-6 border-b border-[#2a2a2a]">
                             <div class="flex gap-2 justify-center">
-                                <a href="{{ route('admin.blog.tags.edit', $tag) }}" class="tooltip-wrap w-8 h-8 flex items-center justify-center rounded-lg border border-[#2a2a2a] bg-transparent text-[#ffd700] no-underline transition-all duration-200 hover:bg-[#ffd700] hover:text-[#1a1a1a] hover:border-[#ffd700]">
+                                <a href="{{ route('admin.blog.tags.edit', $tag) }}" class="tooltip-wrap w-8 h-8 flex items-center justify-center rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] text-[#ffd700] hover:bg-[#ffd700] hover:text-[#1a1a1a] transition-all duration-300">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                                    <span class="tooltip-text">Edit Tag</span>
+                                    <span class="tooltip-text">Edit</span>
                                 </a>
                                 <form method="POST" action="{{ route('admin.blog.tags.destroy', $tag) }}" onsubmit="return confirm('Delete this tag?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="tooltip-wrap w-8 h-8 flex items-center justify-center rounded-lg border border-[#2a2a2a] bg-transparent text-[#ff6b6b] transition-all duration-200 hover:bg-[#ff6b6b] hover:text-white hover:border-[#ff6b6b] cursor-pointer">
+                                    <button type="submit" class="tooltip-wrap w-8 h-8 flex items-center justify-center rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] text-[#ff6b6b] hover:bg-[#ff6b6b] hover:text-white transition-all duration-300 cursor-pointer">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                                        <span class="tooltip-text">Delete Tag</span>
+                                        <span class="tooltip-text">Delete</span>
                                     </button>
                                 </form>
                             </div>
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="4" class="py-8 px-4 text-center text-[#888]">No tags found.</td></tr>
+                    <tr><td colspan="5" class="py-12 px-4 text-center text-[#444] text-sm italic">No tags created yet.</td></tr>
                 @endforelse
             </tbody>
         </table>
-        <div class="p-4 border-t border-[#2a2a2a]">{{ $tags->links() }}</div>
+        <div class="p-6 border-t border-[#2a2a2a] bg-[rgba(26,26,26,0.2)]">{{ $tags->links() }}</div>
+
     </div>
 </div>
 @endsection

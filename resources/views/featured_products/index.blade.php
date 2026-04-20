@@ -42,7 +42,7 @@
             @if($products->count() > 0)
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     @foreach($products as $product)
-                        <a href="{{ route('products.show', $product->id) }}" class="group block no-underline bg-[#151515] light-mode:bg-white border border-[#2a2a2a] light-mode:border-[#e5e5e5] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,215,0,0.1)] hover:border-[rgba(255,215,0,0.3)]">
+                        <a href="{{ route('products.show', $product) }}" class="group block no-underline bg-[#151515] light-mode:bg-white border border-[#2a2a2a] light-mode:border-[#e5e5e5] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,215,0,0.1)] hover:border-[rgba(255,215,0,0.3)]">
                             <div class="aspect-square overflow-hidden relative">
                                 @if($product->image)
                                     <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">

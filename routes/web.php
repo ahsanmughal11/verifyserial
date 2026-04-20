@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 // Public routes
 Route::get('/', [VerificationController::class , 'index']);
+Route::get('/verify', function () {
+    return redirect('/');
+});
 Route::post('/verify', [VerificationController::class , 'verify']);
 Route::get('/about', [AboutController::class , 'index'])->name('about');
 Route::get('/contact', [ContactController::class , 'index'])->name('contact');

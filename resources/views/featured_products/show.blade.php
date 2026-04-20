@@ -6,6 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $featuredProduct->title }} - Karachi Silver Enterprise</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $featuredProduct->title }} - Karachi Silver Enterprise">
+    <meta property="og:description" content="{{ Str::limit(strip_tags($featuredProduct->description), 160) }}">
+    @if($featuredProduct->image)
+        <meta property="og:image" content="{{ url(asset($featuredProduct->image)) }}">
+    @endif
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ $featuredProduct->title }} - Karachi Silver Enterprise">
+    <meta property="twitter:description" content="{{ Str::limit(strip_tags($featuredProduct->description), 160) }}">
+    @if($featuredProduct->image)
+        <meta property="twitter:image" content="{{ url(asset($featuredProduct->image)) }}">
+    @endif
+
     @include('partials.theme-script')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

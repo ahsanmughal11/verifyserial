@@ -6,6 +6,25 @@
     <title>{{ $post->meta_title ?: $post->title }}</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <meta name="description" content="{{ $post->meta_description ?: $post->excerpt }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $post->meta_title ?: $post->title }}">
+    <meta property="og:description" content="{{ $post->meta_description ?: $post->excerpt }}">
+    @if($post->featured_image)
+        <meta property="og:image" content="{{ url(asset($post->featured_image)) }}">
+    @endif
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ $post->meta_title ?: $post->title }}">
+    <meta property="twitter:description" content="{{ $post->meta_description ?: $post->excerpt }}">
+    @if($post->featured_image)
+        <meta property="twitter:image" content="{{ url(asset($post->featured_image)) }}">
+    @endif
+
     @include('partials.theme-script')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
